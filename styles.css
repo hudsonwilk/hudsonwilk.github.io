@@ -1,0 +1,117 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+/* Banner */
+.banner {
+    background-color: #0074D9;
+    color: white;
+    text-align: center;
+    padding: 20px 10px;
+}
+
+.banner h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+.banner p {
+    margin: 5px 0 0;
+    font-size: 1.2rem;
+}
+
+/* Navigation Bar */
+.navbar {
+    background-color: #333;
+    overflow: hidden;
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar li {
+    margin: 0;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 14px 20px;
+    display: block;
+    font-size: 1rem;
+}
+
+.navbar a:hover {
+    background-color: #575757;
+}
+
+/* Sections */
+.section {
+    padding: 20px;
+    background: white;
+    margin: 20px auto;
+    width: 80%;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.section h2 {
+    color: #0074D9;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+/* Sign Up Form */
+.signup-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.signup-form label {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.signup-form input {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.signup-form button {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #0074D9;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.signup-form button:hover {
+    background-color: #005bb5;
+}
+
+/* Footer */
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+

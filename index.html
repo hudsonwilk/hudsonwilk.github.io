@@ -5,6 +5,174 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>East Dallas Athletics Camp</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        /* Banner */
+        .banner {
+            background: linear-gradient(to right, #0074D9, #005bb5);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .banner h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+
+        .banner p {
+            font-size: 1.5rem;
+            margin: 10px 0 0;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        .navbar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .navbar li {
+            margin: 0;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: block;
+            font-size: 1rem;
+        }
+
+        .navbar a:hover {
+            background-color: #575757;
+        }
+
+        /* Sections */
+        .section {
+            padding: 40px;
+            background: white;
+            margin: 20px auto;
+            width: 90%;
+            max-width: 1200px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            color: #0074D9;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        /* Updated Founders Section */
+        .founders {
+            display: block;
+        }
+
+        .founder {
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .founder-img {
+            float: left;
+            margin-right: 20px;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .founder h3 {
+            margin-top: 0;
+            color: #005bb5;
+            font-size: 1.5rem;
+        }
+
+        .founder p {
+            margin: 0 0 10px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        @media (max-width: 768px) {
+            .founder-img {
+                float: none;
+                display: block;
+                margin: 0 auto 20px;
+            }
+        }
+
+
+        /* Testimonials */
+        blockquote {
+            margin: 20px 0;
+            padding: 20px;
+            background: #f4f4f4;
+            border-left: 5px solid #0074D9;
+            font-style: italic;
+        }
+
+        blockquote footer {
+            margin-top: 10px;
+            text-align: right;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        /* Sign Up Form */
+        iframe {
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+        
+        /* Add this to the CSS */
+        .logo-section {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #f9f9f9; /* Matches the page's background */
+        }
+
+        .logo-section img {
+            max-width: 200px; /* Adjust size if needed */
+            width: 100%;
+            height: auto;
+            display: inline-block;
+        }
+
+
+    </style>
 </head>
 <body>
     <header class="banner">
@@ -15,54 +183,100 @@
     <nav class="navbar">
         <ul>
             <li><a href="#about">About Us</a></li>
-            <li><a href="#description">Camp Details</a></li>
+<!--            <li><a href="#quotes">Testimonials</a></li>-->
+            <li><a href="#details">Camp Details</a></li>
             <li><a href="#signup">Sign Up</a></li>
             <li><a href="#contact">Contact Us</a></li>
         </ul>
     </nav>
 
     <main>
+        <!-- About Us Section -->
         <section id="about" class="section">
             <h2>About Us</h2>
-            <p>At East Dallas Athletics Camp (EDAC), our mission is to create a safe, fun and active environment to remind kids that the only screen they need in the summer is sunscreen.</p>
+            <p>At East Dallas Athletics Camp (EDAC), our mission is to create a safe, fun, and active environment to remind kids that the only screen they need in the summer is sunscreen.</p>
+            <div class="founders">
+                <div class="founder">
+                    <img src="hud baseball.jpeg" alt="Headshot of Hudson Wilk" class="founder-img">
+                    <h3>Hudson Wilk</h3>
+                    <p>Hello! My name is Hudson Wilk and with the help of my lifelong friend, Logan Mabry, we founded East Dallas Athletics Camp (EDAC). Growing up in East Dallas, I went through the feeder pattern of Mockingbird Elementary, William B. Travis, and Woodrow Wilson HS. My time in this pattern was one that I wouldn't trade for the world and I couldn’t imagine a better upbringing to make me the person I am today. I currently attend the University of Texas at Austin and I am majoring in Advertising/ Business Marketing. During my time at Woodrow Wilson, I was Varsity Captain of the Baseball team, an International Baccalaureate Diploma recipient, and a 4-year Member of the National Honor Society.</p>
+                    <p>Over the past few summers, I worked at various camps and was inspired by the concept of a kids sports camp. This inspiration gave way to the idea to start my own camp with my dear friend Logan. After conducting several weeks of successful camp fun, a spark was lit, and I knew this was just the beginning. My main goal in co-founding EDAC was to provide an unforgettable experience to the younger generation that I was so lucky to have growing up in East Dallas and regularly attending various summer camps. We want to not only provide a safe and enjoyable environment during the long summer months but also serve as mentors for kids, helping them develop through a fun and inclusive process.</p>
+                </div>
+                <div class="founder">
+                    <img src="log basket.jpeg" alt="Headshot of Logan Mabry" class="founder-img">
+                    <h3>Logan Mabry</h3>
+                    <p>Hey there! My name is Logan Mabry and I’m a co-founder of East Dallas Athletic Camp (EDAC), with the courteous help of my best friend, Hudson Wilk. I currently attend Colorado State University in Fort Collins majoring in Finance, and prior I attended the feeder pattern of Mockingbird, J.L Long, and Woodrow. I was one of Woodrow’s Varsity Captains, an active member of the National Honor Society for two years, and a former Lifeguard at Tietze Pool. I graduated with High Honors and look to continue the same throughout my time in college.</p>
+                    <p>Growing up, sports camps always were a huge factor in my life, and something I will forever cherish. The idea of starting our very own sports camp came about last summer, and Hudson and I knew we’d have a great opportunity to give back to the place that we’ve always loved. The main driving point for why I decided to be a part of founding EDAC was to give back to the community of East Dallas and allow for summer fun for the kids, and free time for busy working parents. I remember growing up and being sent off to various summer sport camps as a kid, and they were always my favorite part about summer. My goal with this camp is to not only help out the future generations of the East Dallas vicinity with summer fun, but to give them a wonderful time to learn, grow, and develop their skills for the future. We want to provide these kids with life long memories and opportunities that will make an everlasting impact.</p>
+                </div>
+            </div>
         </section>
 
-        <section id="description" class="section">
+        <!-- Testimonials Section -->
+        <section id="quotes" class="section">
+            <h2>Kids Love EDAC and Parents Love Us Even More!</h2>
+            <blockquote>
+                <p>“One of the highlights of my 10-year-old son's year was spending 4 days at camp with Logan and Hudson. Not only did he build a little more stamina and endurance, he gained confidence. You can easily see the leadership each of the coaches brings to the table. My son had no complaints and that's a first lol.”</p>
+                <footer>- Shelly</footer>
+            </blockquote>
+            <blockquote>
+                <p>“I just showed Sam your message and his response was 'Everything was perfect! I wouldn't change a thing!' So, thank you!! Sam was very hesitant to go, but by the end, he wanted to return every day. Thank you for providing some screen-free summer fun!!”</p>
+                <footer>- Elizabeth</footer>
+            </blockquote>
+            <blockquote>
+                <p>“Thanks so much for providing community and activity and mentorship for our kids. Keep me posted if y'all do any camps next summer. Appreciate you!”</p>
+                <footer>- Whitney</footer>
+            </blockquote>
+            <blockquote>
+                <p>“His favorite part was doing different sports. His least favorite was he wished the camp was longer.”</p>
+                <footer>- Finnegan</footer>
+            </blockquote>
+        </section>
+
+        <!-- Camp Details Section -->
+        <section id="details" class="section">
             <h2>Camp Details</h2>
-            <p>Our camp runs from June to August, Monday through Friday, 9:00 AM to 3:00 PM. Each week features different sports, team-building activities, and fun competitions. Lunch and snacks are provided daily!</p>
             <ul>
-                <li><strong>Location:</strong> East Dallas Community Center</li>
+                <li><strong>When:</strong> Our camp will run on the following weeks: [Insert Dates]</li>
+                <li><strong>Camp Length:</strong> Monday through Friday, 9:00 AM to 3:00 PM. Campers must bring their own lunch and water bottle. A healthy snack is provided daily.</li>
+                <li><strong>Location:</strong> Lakewood Presbyterian Church (1234 Sports Lane, Dallas, TX)</li>
                 <li><strong>Ages:</strong> 7-12</li>
-                <li><strong>Cost:</strong> $325 per week</li>
+                <li><strong>Cost:</strong> $350 per week</li>
             </ul>
         </section>
 
+        <!-- Sign Up Section -->
         <section id="signup" class="section">
             <h2>Sign Up</h2>
-            <p>Please fill out the form below to register for our camp:</p>
+            <p>Register for our camp by filling out the form below:</p>
             <iframe
                 src="https://docs.google.com/forms/d/1JtvAbiXFUQx-s4mqa-FeEuNRE7fxT34534c0GTx7a7k/viewform?embedded=true"
-
-                width="640"
+                width="100%"
                 height="800"
                 frameborder="0"
                 marginheight="0"
                 marginwidth="0">Loading…</iframe>
         </section>
 
+        <!-- Contact Section -->
         <section id="contact" class="section">
             <h2>Contact Us</h2>
-            <p>If you have any questions, feel free to reach out!</p>
             <ul>
-                <li><strong>Email:</strong> hudsonwilk@utexas.edu</li>
+                <li><strong>Hudson Wilk:</strong> hudsonwilk@utexas.edu</li>
+                <li><strong>Logan Mabry:</strong> loganmabry@csu.edu</li>
                 <li><strong>Phone:</strong> (555) 123-4567</li>
                 <li><strong>Address:</strong> 1234 Sports Lane, Dallas, TX</li>
             </ul>
+
         </section>
     </main>
+    
+<!--    <section id="logo" class="logo-section">-->
+<!--        <img src="EDAC.png" alt="EDAC Logo">-->
+<!--    </section>-->
 
     <footer class="footer">
         <p>&copy; 2025 East Dallas Athletics Camp. All rights reserved.</p>
     </footer>
+
 </body>
 </html>

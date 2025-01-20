@@ -16,6 +16,7 @@
             padding: 0;
             color: #333;
             background-color: #f9f9f9;
+            box-sizing: border-box;
         }
 
         /* Banner */
@@ -40,7 +41,13 @@
         .navbar {
             background-color: #333;
             overflow: hidden;
+            width: 100%
         }
+        
+        * {
+            box-sizing: border-box;
+        }
+
 
         .navbar ul {
             list-style: none;
@@ -70,8 +77,8 @@
         .section {
             padding: 40px;
             background: white;
-            margin: 10px auto;
-            width: 95%;
+            margin: 20px auto;
+            width: 90%;
             max-width: 1200px;
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -92,12 +99,18 @@
             margin-bottom: 40px;
             position: relative;
         }
+        
+        header.banner, footer.footer {
+            width: 100%;
+            margin: 0;
+        }
+
 
         .founder-img {
             float: left;
             margin-right: 20px;
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
             object-fit: cover;
             border-radius: 10%;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);

@@ -283,17 +283,45 @@
              
 
         <section id="State-of-the-Art Facilities" class="section">
-            <h2>State-of-the-Art Facilities</h2>
-            <ul>
-         <img <img src="gym1.jpeg" alt="Headshot of Hudson Wilk" class="founder-img">
-                    <img <img src="gym 2.jpeg" alt="Headshot of Hudson Wilk" class="founder-img">
-                <img src="gym 3.jpeg" alt="Headshot of Logan Mabry" class="founder-img">
-                    <img src="lobby.jpeg" alt="Headshot of Logan Mabry" class="founder-img">
-                
-         <li>
-         <li>
-         <li>
-         <li>
+            <section id="facilities" class="section">
+    <h2>State-of-the-Art Facilities</h2>
+    <div class="facilities-gallery">
+        <img src="gym1.jpg" alt="Facility Image 1">
+        <img src="gym2.jpg" alt="Facility Image 2">
+        <img src="gym3.jpg" alt="Facility Image 3">
+        <img src="lobby1.jpg" alt="Facility Image 4">
+        <img src="lobby2.jpg" alt="Facility Image 5">
+    </div>
+</section>
+
+<style>
+    .facilities-gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .facilities-gallery img {
+        width: calc(100% / 3 - 20px); /* Adjusts width to fit three images per row */
+        max-width: 300px; /* Ensures images are not too large */
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 768px) {
+        .facilities-gallery img {
+            width: calc(100% / 2 - 15px); /* Adjusts width for smaller screens */
+        }
+    }
+
+    @media (max-width: 480px) {
+        .facilities-gallery img {
+            width: 100%; /* Makes images stack in a single column on very small screens */
+        }
+    }
+</style>
                 
             </ul>
 

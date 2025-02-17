@@ -295,30 +295,39 @@
 </section>
 
 <style>
+    .facilities-section {
+        width: 100%;
+        padding: 40px 0;
+        background: white;
+        text-align: center;
+    }
+
     .facilities-gallery {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 15px;
+        gap: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
     }
 
     .facilities-gallery img {
-        width: calc(100% / 3 - 20px); /* Adjusts width to fit three images per row */
-        max-width: 300px; /* Ensures images are not too large */
+        width: calc(100% / 3 - 20px); /* Ensures three images per row */
+        max-width: 350px; /* Slightly larger images */
         height: auto;
         border-radius: 8px;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
         .facilities-gallery img {
-            width: calc(100% / 2 - 15px); /* Adjusts width for smaller screens */
+            width: calc(100% / 2 - 15px); /* Two images per row on medium screens */
         }
     }
 
-    @media (max-width: 480px) {
+    @media (max-width: 600px) {
         .facilities-gallery img {
-            width: 100%; /* Makes images stack in a single column on very small screens */
+            width: 100%; /* Single-column layout on smaller screens */
         }
     }
 </style>

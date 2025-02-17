@@ -282,8 +282,7 @@
             </ul>
              
 
-        <section id="State-of-the-Art Facilities" class="section">
-            <section id="facilities" class="section">
+       <section id="facilities" class="section">
     <h2>State-of-the-Art Facilities</h2>
     <div class="facilities-gallery">
         <img src="gym1.jpg" alt="Facility Image 1">
@@ -295,25 +294,16 @@
 </section>
 
 <style>
-    .facilities-section {
-        width: 100%;
-        padding: 40px 0;
-        background: white;
-        text-align: center;
-    }
-
     .facilities-gallery {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         gap: 20px;
-        max-width: 1200px;
-        margin: 0 auto;
     }
 
     .facilities-gallery img {
-        width: calc(100% / 3 - 20px); /* Ensures three images per row */
-        max-width: 350px; /* Slightly larger images */
+        width: calc(100% / 3 - 20px); /* 3 images per row */
+        max-width: 350px;
         height: auto;
         border-radius: 8px;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -321,13 +311,13 @@
 
     @media (max-width: 900px) {
         .facilities-gallery img {
-            width: calc(100% / 2 - 15px); /* Two images per row on medium screens */
+            width: calc(100% / 2 - 15px); /* 2 images per row on medium screens */
         }
     }
 
     @media (max-width: 600px) {
         .facilities-gallery img {
-            width: 100%; /* Single-column layout on smaller screens */
+            width: 100%; /* 1 image per row on small screens */
         }
     }
 </style>

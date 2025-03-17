@@ -6,7 +6,7 @@
     <title>East Dallas Athletics Camp</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Baloo+2:wght@700&family=Fredoka+One&family=Titan+One&family=Chewy&family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
     <style>
         /* General Styles */
         body {
@@ -27,7 +27,7 @@
             background-repeat: no-repeat;
             background-size: cover;
             height: 100vh;
-            display: grid;
+            display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
@@ -59,6 +59,41 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            .parallax h1 {
+                font-size: 2.5rem; /* Smaller font size for mobile */
+                letter-spacing: 2px;
+                padding: 15px 20px;
+            }
+
+            .parallax p {
+                font-size: 1.2rem; /* Smaller font size for mobile */
+                padding: 8px 15px;
+            }
+
+            .parallax {
+                background-attachment: scroll; /* Disable parallax on mobile */
+                height: 70vh; /* Reduce height for mobile */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .parallax h1 {
+                font-size: 2rem; /* Even smaller font size for very small screens */
+                padding: 10px 15px;
+            }
+
+            .parallax p {
+                font-size: 1rem;
+                padding: 5px 10px;
+            }
+
+            .parallax {
+                height: 60vh; /* Further reduce height for very small screens */
+            }
+        }
+
         /* Navigation Bar */
         .navbar {
             background-color: #333;
@@ -75,6 +110,7 @@
             padding: 0;
             display: flex;
             justify-content: center;
+            flex-wrap: wrap; /* Allow wrapping on small screens */
         }
 
         .navbar li {
@@ -96,7 +132,7 @@
 
         /* Sections */
         .section {
-            padding: 60px 40px;
+            padding: 40px 20px; /* Reduced padding for mobile */
             background: white;
             margin: 20px auto;
             width: 90%;
@@ -107,7 +143,7 @@
 
         .section h2 {
             color: #F5E874;
-            font-size: 2.5rem;
+            font-size: 2rem; /* Smaller heading for mobile */
             margin-bottom: 20px;
             text-align: center;
         }
@@ -121,14 +157,14 @@
         }
 
         .founder {
-            flex: 1 1 300px;
+            flex: 1 1 100%; /* Full width on mobile */
             text-align: center;
             margin-bottom: 40px;
         }
 
         .founder-img {
-            width: 150px;
-            height: 150px;
+            width: 120px; /* Smaller image for mobile */
+            height: 120px;
             object-fit: cover;
             border-radius: 50%;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -172,7 +208,7 @@
         }
 
         .facilities-gallery img {
-            width: calc(100% / 3 - 20px);
+            width: calc(100% / 2 - 20px); /* 2 images per row on mobile */
             max-width: 350px;
             height: auto;
             border-radius: 8px;
@@ -199,7 +235,7 @@
     <!-- Sleeker Parallax Header -->
     <div class="parallax">
         <h1>East Dallas Athletics Camp</h1>
-        <!-- <h4>Where Fun Meets Fitness!<h4> -->
+        <!-- <p>Where Fun Meets Fitness!</p> -->
     </div>
 
     <!-- Navigation Bar -->

@@ -6,7 +6,7 @@
     <title>East Dallas Athletics Camp</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Baloo+2:wght@700&family=Fredoka+One&family=Titan+One&family=Chewy&family=Poppins:wght@700&display=swap" rel="stylesheet">
     <style>
         /* General Styles */
         body {
@@ -19,49 +19,55 @@
             box-sizing: border-box;
         }
 
-        /* Banner */
-        .banner {
-                background: #F5E874; /* Light Yellow */
-                color: #333; /* Dark Text for Contrast */
-                text-align: center;
-                padding: 40px 20px;
+        /* Sleeker Header with Parallax Effect */
+        .parallax {
+            background-image: url('gym1.png'); /* Replace with your facility image */
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100vh;
+            display: grid;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
         }
 
-        .banner h1 {
-            font-size: 3rem;
-            margin: 0;
-           font-family: 'Fredoka One', sans-serif; /* Try 'Bungee' or 'Titan One' too */
-    text-transform: uppercase;
-    letter-spacing: 1px;
-<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Baloo+2:wght@700&family=Fredoka+One&family=Titan+One&family=Chewy&display=swap" rel="stylesheet">
-
-
-
+        .parallax h1 {
+            font-size: 4.5rem;
+            font-family: 'Poppins', sans-serif; /* Sleeker font */
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            background: rgba(0, 0, 0, 0.6); /* Semi-transparent overlay */
+            padding: 20px 40px;
+            border-radius: 10px;
+            animation: fadeIn 2s ease-in-out;
         }
 
-        .banner p {
+        .parallax p {
             font-size: 1.5rem;
-            margin: 10px 0 0;
+            margin-top: 10px;
+            font-family: 'Poppins', sans-serif;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* Navigation Bar */
         .navbar {
             background-color: #333;
             overflow: hidden;
-            width: 100%
+            width: 100%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
-        
-        * {
-            box-sizing: border-box;
-        }
-        
-        div.spacer
-        {
-            font-size: 0;
-            height: 100px;
-            line-height: 0;
-        }
-
 
         .navbar ul {
             list-style: none;
@@ -81,6 +87,7 @@
             padding: 14px 20px;
             display: block;
             font-size: 1rem;
+            transition: background 0.3s ease;
         }
 
         .navbar a:hover {
@@ -89,7 +96,7 @@
 
         /* Sections */
         .section {
-            padding: 40px;
+            padding: 60px 40px;
             background: white;
             margin: 20px auto;
             width: 90%;
@@ -100,45 +107,37 @@
 
         .section h2 {
             color: #F5E874;
-            font-size: 2rem;
+            font-size: 2.5rem;
             margin-bottom: 20px;
+            text-align: center;
         }
 
-        /* Updated Founders Section */
+        /* Founders Section */
         .founders {
-            display: block;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
         }
 
         .founder {
+            flex: 1 1 300px;
+            text-align: center;
             margin-bottom: 40px;
-            position: relative;
         }
-        
-        header.banner, footer.footer {
-            width: 100%;
-            margin: 0;
-        }
-
 
         .founder-img {
-            float: left;
-            margin-right: 20px;
-            width: 120px;
-            height: 120px;
+            width: 150px;
+            height: 150px;
             object-fit: cover;
-            border-radius: 10%;
+            border-radius: 50%;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 15px;
         }
 
         .founder h3 {
             margin-top: 0;
             color: #F5E874;
-            font-size: 1.5rem;
-        }
-        
-        .founder h6 {
-            margin-top: 0;
-            color: #005bb5;
             font-size: 1.5rem;
         }
 
@@ -147,15 +146,6 @@
             line-height: 1.6;
             color: #333;
         }
-
-<!--        @media (max-width: 768px) {-->
-<!--            .founder-img {-->
-<!--                float: none;-->
-<!--                display: block;-->
-<!--                margin: 0 auto 20px;-->
-<!--            }-->
-<!--        }-->
-
 
         /* Testimonials */
         blockquote {
@@ -173,11 +163,25 @@
             color: #555;
         }
 
-        /* Sign Up Form */
-        iframe {
-            border: none;
+        /* Facilities Gallery */
+        .facilities-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .facilities-gallery img {
+            width: calc(100% / 3 - 20px);
+            max-width: 350px;
+            height: auto;
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .facilities-gallery img:hover {
+            transform: scale(1.05);
         }
 
         /* Footer */
@@ -186,43 +190,29 @@
             color: white;
             text-align: center;
             padding: 20px 0;
-            margin-top: 20px;
+            margin-top: 40px;
             font-size: 0.9rem;
         }
-        
-        /* Add this to the CSS */
-        .logo-section {
-            text-align: center;
-            padding: 20px 0;
-            background-color: #f9f9f9; /* Matches the page's background */
-        }
-
-        .logo-section img {
-            max-width: 200px; /* Adjust size if needed */
-            width: 100%;
-            height: auto;
-            display: inline-block;
-        }
-
-
     </style>
 </head>
 <body>
-    <header class="banner">
+    <!-- Sleeker Parallax Header -->
+    <div class="parallax">
         <h1>East Dallas Athletics Camp</h1>
-        <p>Where Fun Meets Fitness!</p>
-    </header>
+        <!-- <h4>Where Fun Meets Fitness!<h4> -->
+    </div>
 
+    <!-- Navigation Bar -->
     <nav class="navbar">
         <ul>
             <li><a href="#about">About Us</a></li>
-<!--            <li><a href="#quotes">Testimonials</a></li>-->
             <li><a href="#details">Camp Details</a></li>
-            <li><a  href="#signup" ></strong>Sign Up</strong></a></li>
+            <li><a href="#signup">Sign Up</a></li>
             <li><a href="#contact">Contact Us</a></li>
         </ul>
     </nav>
 
+    <!-- Main Content -->
     <main>
         <!-- About Us Section -->
         <section id="about" class="section">
@@ -230,24 +220,16 @@
             <p>At East Dallas Athletics Camp (EDAC), our mission is to create a safe, fun, and active environment to remind kids that the only screen they need in the summer is sunscreen.</p>
             <p>Campers will spend the week building athletic skills, confidence, and teamwork through a variety of sports and fitness activities. Each day includes training in different sports, such as basketball, soccer, dodgeball, Foursquare, kickball, volleyball, spikeball, wiffleball, putter golf, free play, and more, with a focus on fundamentals, agility, and overall athletic development. Our experienced coaches work with all skill levels to create a positive, encouraging environment where kids stay active, make new friends, and have a blast—without the need for screens!</p>
 
-            <div class="spacer"></div>
             <div class="founders">
-
                 <div class="founder">
-<!--                    <img src="hud baseball.jpeg" alt="Headshot of Hudson Wilk" class="founder-img">-->
-                        
-                        <h3>Hudson Wilk</h3>
-                        <img src="hud baseball.jpeg" alt="Headshot of Hudson Wilk" class="founder-img">
-                        <img src="hud prof.JPG" alt="Headshot of Hudson Wilk" class="founder-img">
-<!--                    <h3>Bio</h3>-->
+                    <h3>Hudson Wilk</h3>
+                    <img src="hud baseball.jpeg" alt="Hudson Wilk" class="founder-img">
                     <p>Hello! My name is Hudson Wilk and with the help of my lifelong friend, Logan Mabry, we founded East Dallas Athletics Camp (EDAC). Growing up in East Dallas, I went through the feeder pattern of Mockingbird Elementary, William B. Travis, and Woodrow Wilson HS. My time in this pattern was one that I wouldn't trade for the world and I couldn’t imagine a better upbringing to make me the person I am today. I currently attend the University of Texas at Austin and I am majoring in Advertising/ Business Marketing. During my time at Woodrow Wilson, I was Varsity Captain of the Baseball team, an International Baccalaureate Diploma recipient, and a 4-year Member of the National Honor Society.</p>
                     <p>Over the past few summers, I worked at various camps and was inspired by the concept of a kids sports camp. This inspiration gave way to the idea to start my own camp with my dear friend Logan. After conducting several weeks of successful camp fun, a spark was lit, and I knew this was just the beginning. My main goal in co-founding EDAC was to provide an unforgettable experience to the younger generation that I was so lucky to have growing up in East Dallas and regularly attending various summer camps. We want to not only provide a safe and enjoyable environment during the long summer months but also serve as mentors for kids, helping them develop through a fun and inclusive process.</p>
                 </div>
                 <div class="founder">
                     <h3>Logan Mabry</h3>
-                    <img src="log basket new.jpeg" alt="Headshot of Logan Mabry" class="founder-img">
-                    <img src="log prof.jpeg" alt="Headshot of Logan Mabry" class="founder-img">
-
+                    <img src="log basket new.jpeg" alt="Logan Mabry" class="founder-img">
                     <p>Hey there! My name is Logan Mabry and I’m a co-founder of East Dallas Athletic Camp (EDAC), with the courteous help of my best friend, Hudson Wilk. I currently attend Colorado State University in Fort Collins majoring in Finance, and prior I attended the feeder pattern of Mockingbird, J.L Long, and Woodrow. I was one of Woodrow’s Varsity Basketball Captains, an active member of the National Honor Society for two years, and a former Lifeguard at Tietze Pool. I graduated with High Honors and look to continue the same throughout my time in college.</p>
                     <p>Growing up, sports camps always were a huge factor in my life, and something I will forever cherish. The idea of starting our very own sports camp came about last summer, and Hudson and I knew we’d have a great opportunity to give back to the place that we’ve always loved. The main driving point for why I decided to be a part of founding EDAC was to give back to the community of East Dallas and allow for summer fun for the kids, and free time for busy working parents. I remember growing up and being sent off to various summer sport camps as a kid, and they were always my favorite part about summer. My goal with this camp is to not only help out the future generations of the East Dallas vicinity with summer fun, but to give them a wonderful time to learn, grow, and develop their skills for the future. We want to provide these kids with life long memories and opportunities that will make an everlasting impact.</p>
                 </div>
@@ -279,70 +261,32 @@
         <section id="details" class="section">
             <h2>Camp Details</h2>
             <ul>
-         <li><strong>When:</strong> June 2nd-6th,   June 16th-20th,   July 14th-18th,   July 28th-Aug 1st</li>
-         <li><strong>Location:</strong> Zion Lutheran Church (6121 E Lovers Ln, Dallas, TX 75214)</li>
-         <li><strong>Camp Length:</strong> Monday through Friday, 9:00 AM to 3:00 PM. 
-         <li><strong>What to Bring:</strong> Campers must bring their own lunch and refillable water bottle. A healthy snack is provided daily.</li>
-         <li><strong>Ages:</strong> Boys and Girls ages 7-12</li>
-         <li><strong>Cost:</strong> $350 per week</li>
-         <li><strong>Venmo:</strong> @edacamp</li>
-         <li><strong>Cash App:</strong> @edacamp</li>
-                
+                <li><strong>When:</strong> June 2nd-6th, June 16th-20th, July 14th-18th, July 28th-Aug 1st</li>
+                <li><strong>Location:</strong> Zion Lutheran Church (6121 E Lovers Ln, Dallas, TX 75214)</li>
+                <li><strong>Camp Length:</strong> Monday through Friday, 9:00 AM to 3:00 PM.</li>
+                <li><strong>What to Bring:</strong> Campers must bring their own lunch and refillable water bottle. A healthy snack is provided daily.</li>
+                <li><strong>Ages:</strong> Boys and Girls ages 7-12</li>
+                <li><strong>Cost:</strong> $350 per week</li>
+                <li><strong>Venmo:</strong> @edacamp</li>
+                <li><strong>Cash App:</strong> @edacamp</li>
             </ul>
-             
+        </section>
 
-       <section id="facilities" class="section">
-    <h2>State-of-the-Art Facilities</h2>
-           <p> The Zion Lutheran Church gym, built in 2023, is a brand-new, state-of-the-art facility designed for fun and active play! With a spacious court, top-quality equipment, and plenty of room to run and compete, it’s the perfect place for campers to enjoy all kinds of sports. Plus, the gym features a welcoming lobby space where kids can take a break, eat lunch, and connect with friends between activities. Whether they’re shooting hoops, playing dodgeball, or mastering new skills, campers will have a blast in this modern and exciting space!
-
-    <div class="facilities-gallery">
-        <img src="gym1.jpg" alt="Facility Image 1">
-        <img src="gym2.jpg" alt="Facility Image 2">
-        <img src="gym3.jpg" alt="Facility Image 3">
-        <img src="lobby1.jpg" alt="Facility Image 4">
-        <img src="lobby2.jpg" alt="Facility Image 5">
-    </div>
-</section>
-
-<style>
-    .facilities-gallery {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-    }
-
-    .facilities-gallery img {
-        width: calc(100% / 3 - 20px); /* 3 images per row */
-        max-width: 350px;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    @media (max-width: 900px) {
-        .facilities-gallery img {
-            width: calc(100% / 2 - 15px); /* 2 images per row on medium screens */
-        }
-    }
-
-    @media (max-width: 600px) {
-        .facilities-gallery img {
-            width: 100%; /* 1 image per row on small screens */
-        }
-    }
-</style>
-                
-            </ul>
-
-       
-             
+        <!-- Facilities Section -->
+        <section id="facilities" class="section">
+            <h2>State-of-the-Art Facilities</h2>
+            <div class="facilities-gallery">
+                <img src="gym1.png" alt="Facility Image 1">
+                <img src="gym2.png" alt="Facility Image 2">
+                <img src="gym3.png" alt="Facility Image 3">
+                <img src="lobby1.png" alt="Facility Image 4">
+                <img src="lobby2.png" alt="Facility Image 5">
+            </div>
         </section>
 
         <!-- Sign Up Section -->
         <section id="signup" class="section">
             <h2>Sign Up</h2>
-            <p>Register for our camp by filling out the form below:</p>
             <iframe
                 src="https://docs.google.com/forms/d/1JtvAbiXFUQx-s4mqa-FeEuNRE7fxT34534c0GTx7a7k/viewform?embedded=true"
                 width="100%"
@@ -356,28 +300,16 @@
         <section id="contact" class="section">
             <h2>Contact Us</h2>
             <ul>
-                <p>
-                <h3>Hudson Wilk</h3>
-                <li><strong>Email:</strong> hudsonwilk@utexas.edu</li>
-                <li><strong>Phone:</strong> 214-957-8713</li>
-                <p>
-                
-                <h3>Logan Mabry</h3>
-            <li><strong>Email:</strong> loganmabry@icloud.com</li>
-            <li><strong>Phone:</strong> 972-762-2407</li>
+                <li><strong>Hudson Wilk:</strong> hudsonwilk@utexas.edu | 214-957-8713</li>
+                <li><strong>Logan Mabry:</strong> loganmabry@icloud.com | 972-762-2407</li>
+                <li><strong>Instagram:</strong> @eastdallasathleticscamp</li>
             </ul>
-<strong>Follow Our Instagram!:</strong> @eastdallasathleticscamp</li>
         </section>
     </main>
-    
-<!--    <section id="logo" class="logo-section">-->
-<!--        <img src="EDAC.png" alt="EDAC Logo">-->
-<!--    </section>-->
 
+    <!-- Footer -->
     <footer class="footer">
         <p>&copy; 2025 East Dallas Athletics Camp. All rights reserved.</p>
     </footer>
-
 </body>
 </html>
-

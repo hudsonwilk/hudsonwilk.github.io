@@ -149,54 +149,41 @@
         }
 
         /* Founders Section */
-    /* Founders Section - Smaller and side by side on desktop */
-.founders {
-    display: flex;
-    flex-wrap: nowrap; /* Keep side by side on desktop */
-    gap: 40px;
-    justify-content: center;
-    max-width: 1000px;
-    margin: 0 auto 40px auto;
-}
+   
+        .founders {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
 
-.founder {
-    flex: 1 1 48%; /* roughly half width side by side */
-    text-align: left;
-    margin-bottom: 0;
-}
+        .founder {
+            flex: 1 1 100%; /* Full width on mobile */
+            text-align: center;
+            margin-bottom: 40px;
+        }
 
-.founder h3 {
-    font-size: 1.3rem; /* smaller than before */
-    color: #F5E874;
-    margin-top: 0;
-}
+        .founder-img {
+            width: 120px; /* Smaller image for mobile */
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 15px;
+        }
 
-.founder p {
-    font-size: 0.9rem; /* smaller font size for bio paragraphs */
-    line-height: 1.4;
-    color: #333;
-}
+        .founder h3 {
+            margin-top: 0;
+            color: #F5E874;
+            font-size: 1.5rem;
+        }
 
-/* Responsive: stack vertically on smaller screens */
-@media (max-width: 768px) {
-    .founders {
-        flex-wrap: wrap;
-        max-width: 90%;
-        margin-bottom: 20px;
-    }
-    .founder {
-        flex: 1 1 100%;
-        text-align: center;
-        margin-bottom: 40px;
-    }
-    .founder h3 {
-        font-size: 1.5rem;
-    }
-    .founder p {
-        font-size: 1rem;
-        line-height: 1.6;
-    }
-}
+        .founder p {
+            margin: 0 0 10px;
+            line-height: 1.6;
+            color: #333;
+        }
+
         /* Testimonials */
         blockquote {
             margin: 20px 0;

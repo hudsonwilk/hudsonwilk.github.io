@@ -515,7 +515,7 @@ section { padding: 70px 16px; }
 <!-- FLOATING CTA -->
 
 <a href="#signup" class="floating-cta" id="floatingCta">
-  <div class="floating-cta-btn"><i class="fas fa-arrow-down"></i></div>
+  <div class="floating-cta-btn"><i class="fas fa-arrow-down" id="floatingCtaIcon"></i></div>
   <span class="floating-cta-label">Sign Up</span>
 </a>
 
@@ -951,11 +951,24 @@ window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', windo
 
 // Floating CTA — hide when signup section is visible
 const floatingCta = document.getElementById('floatingCta');
+const floatingCtaIcon = document.getElementById('floatingCtaIcon');
 const signupSection = document.getElementById('signup');
+function updateCtaIcon() {
+  if (floatingCta.style.opacity === '0') return;
+  const rect = signupSection.getBoundingClientRect();
+  const isAboveForm = rect.top > 0;
+  floatingCtaIcon.className = 'fas ' + (isAboveForm ? 'fa-arrow-down' : 'fa-arrow-up');
+}
 const obsCta = new IntersectionObserver(entries => {
-  entries.forEach(e => { floatingCta.style.opacity = e.isIntersecting ? '0' : '1'; floatingCta.style.pointerEvents = e.isIntersecting ? 'none' : 'auto'; });
+  entries.forEach(e => {
+    floatingCta.style.opacity = e.isIntersecting ? '0' : '1';
+    floatingCta.style.pointerEvents = e.isIntersecting ? 'none' : 'auto';
+    if (!e.isIntersecting) updateCtaIcon();
+  });
 }, { threshold: 0.2 });
 obsCta.observe(signupSection);
+window.addEventListener('scroll', updateCtaIcon);
+updateCtaIcon();
 
 // Mobile Menu
 function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }

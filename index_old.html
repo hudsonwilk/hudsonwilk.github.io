@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>East Dallas Athletics Camp</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f9f9f9;
+            box-sizing: border-box;
+        }
+
+        /* Sleeker Header with Parallax Effect */
+        .parallax {
+            background-image: url('cover1.png'); /* Replace with your facility image */
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .parallax h1 {
+            font-size: 4.5rem;
+            font-family: 'Poppins', sans-serif; /* Sleeker font */
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            background: rgba(0, 0, 0, 0.6); /* Semi-transparent overlay */
+            padding: 20px 40px;
+            border-radius: 10px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .parallax p {
+            font-size: 1.5rem;
+            margin-top: 10px;
+            font-family: 'Poppins', sans-serif;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            .parallax h1 {
+                font-size: 2.5rem; /* Smaller font size for mobile */
+                letter-spacing: 2px;
+                padding: 15px 20px;
+            }
+
+            .parallax p {
+                font-size: 1.2rem; /* Smaller font size for mobile */
+                padding: 8px 15px;
+            }
+
+            .parallax {
+                background-attachment: scroll; /* Disable parallax on mobile */
+                height: 70vh; /* Reduce height for mobile */
+            }
+        }
+         .founder {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+        @media (max-width: 480px) {
+            .parallax h1 {
+                font-size: 2rem; /* Even smaller font size for very small screens */
+                padding: 10px 15px;
+            }
+
+            .parallax p {
+                font-size: 1rem;
+                padding: 5px 10px;
+            }
+
+            .parallax {
+                height: 60vh; /* Further reduce height for very small screens */
+            }
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+            width: 100%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap; /* Allow wrapping on small screens */
+        }
+
+        .navbar li {
+            margin: 0;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: block;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .navbar a:hover {
+            background-color: #575757;
+        }
+
+        /* Sections */
+        .section {
+            padding: 40px 20px; /* Reduced padding for mobile */
+            background: white;
+            margin: 20px auto;
+            width: 90%;
+            max-width: 1200px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            color: #F5E874;
+            font-size: 2rem; /* Smaller heading for mobile */
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Founders Section */
+   
+       .founders {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.founder {
+    flex: 1 1 45%;
+    max-width: 500px;
+    text-align: center;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.founder:hover {
+    transform: translateY(-5px);
+}
+        .founder-img {
+            width: 120px; /* Smaller image for mobile */
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 15px;
+        }
+
+        .founder h3 {
+            margin-top: 0;
+            color: #F5E874;
+            font-size: 1.5rem;
+        }
+
+        .founder p {
+            margin: 0 0 10px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Testimonials */
+        blockquote {
+            margin: 20px 0;
+            padding: 20px;
+            background: #f4f4f4;
+            border-left: 5px solid #F5E874;
+            font-style: italic;
+        }
+
+        blockquote footer {
+            margin-top: 10px;
+            text-align: right;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        /* Facilities Gallery */
+        .facilities-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .facilities-gallery img {
+            width: calc(100% / 2 - 20px); /* 2 images per row on mobile */
+            max-width: 350px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .facilities-gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        /* FAQ Section */
+        .faq {
+            margin-top: 40px;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+
+        .faq-question {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+            padding: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: #f4f4f4;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: #F5E874;
+        }
+
+        .faq-question.active::after {
+            content: '-';
+        }
+
+        .faq-answer {
+            padding: 0 15px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-answer p {
+            margin: 10px 0;
+        }
+
+        /* Counselors Section */
+        .counselors {
+            margin-top: 60px;
+            text-align: center;
+        }
+        
+        .counselors h3 {
+            font-size: 1.8rem;
+            color: #F5E874;
+            margin-bottom: 30px;
+        }
+        
+        .counselor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            justify-items: center;
+        }
+        
+        .counselor-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .counselor-img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .counselor-card p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #333;
+        }
+
+
+        /* Footer */
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+            font-size: 0.9rem;
+        }
+        .about-text {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+        .video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 ratio */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+    </style>
+</head>
+<body>
+    <!-- Sleeker Parallax Header -->
+    <div class="parallax">
+        <h1>East Dallas Athletics Camp</h1>
+        <!-- <p>Where Fun Meets Fitness!</p> -->
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#details">Camp Details</a></li>
+            <li><a href="#signup">Sign Up</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="#faq">FAQ</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- Video Section -->
+        <section class="section">
+        <h2>Watch Our Camp in Action</h2>
+        <div class="video-wrapper">
+            <iframe src="https://player.vimeo.com/video/1096803298?title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        </div>
+        </section>
+
+       
+        <!-- About Us Section -->
+        <section id="about" class="section">
+            <h2>About Us</h2>
+            <div class="about-text">
+            <p>At East Dallas Athletics Camp (EDAC), our mission is to create a safe, fun, and active environment to remind kids that the only screen they need in the summer is sunscreen.</p>
+            <p>Campers will spend the week building athletic skills, confidence, and teamwork through a variety of sports and fitness activities. Each day includes training in different sports, such as basketball, soccer, dodgeball, Foursquare, kickball, volleyball, spikeball, wiffleball, putter golf, free play, and more, with a focus on fundamentals, agility, and overall athletic development. Our experienced coaches work with all skill levels to create a positive, encouraging environment where kids stay active, make new friends, and have a blast—without the need for screens!</p>
+</div>
+            <div class="founders">
+                <div class="founder">
+                    <h3>Hudson Wilk</h3>
+                    <img src="hud baseball.jpeg" alt="Hudson Wilk" class="founder-img">
+                    <img src="hud prof.JPG" alt="Hudson Wilk" class="founder-img">
+                    <p>Hello! My name is Hudson Wilk and with the help of my lifelong friend, Logan Mabry, we founded East Dallas Athletics Camp (EDAC). Growing up in East Dallas, I went through the feeder pattern of Mockingbird Elementary, William B. Travis, and Woodrow Wilson HS. My time in this pattern was one that I wouldn't trade for the world and I couldn’t imagine a better upbringing to make me the person I am today. I currently attend the University of Texas at Austin and I am majoring in Advertising/ Business Marketing. During my time at Woodrow Wilson, I was Varsity Captain of the Baseball team, an International Baccalaureate Diploma recipient, and a 4-year Member of the National Honor Society.</p>
+                    <p>Over the past few summers, I worked at various camps and was inspired by the concept of a kids sports camp. This inspiration gave way to the idea to start my own camp with my dear friend Logan. After conducting several weeks of successful camp fun, a spark was lit, and I knew this was just the beginning. My main goal in co-founding EDAC was to provide an unforgettable experience to the younger generation that I was so lucky to have growing up in East Dallas and regularly attending various summer camps. We want to not only provide a safe and enjoyable environment during the long summer months but also serve as mentors for kids, helping them develop through a fun and inclusive process.</p>
+                </div>
+                <div class="founder">
+                    <h3>Logan Mabry</h3>
+                    <img src="log basket new.jpeg" alt="Logan Mabry" class="founder-img">
+                    <img src="log prof.jpeg" alt="Logan Mabry" class="founder-img">
+                    <p>Hey there! My name is Logan Mabry and I’m a co-founder of East Dallas Athletic Camp (EDAC), with the courteous help of my best friend, Hudson Wilk. I currently attend Colorado State University in Fort Collins majoring in Finance, and prior I attended the feeder pattern of Mockingbird, J.L Long, and Woodrow. I was one of Woodrow’s Varsity Basketball Captains, an active member of the National Honor Society for two years, and a former Lifeguard at Tietze Pool. I graduated with High Honors and look to continue the same throughout my time in college.</p>
+                    <p>Growing up, sports camps always were a huge factor in my life, and something I will forever cherish. The idea of starting our very own sports camp came about last summer, and Hudson and I knew we’d have a great opportunity to give back to the place that we’ve always loved. The main driving point for why I decided to be a part of founding EDAC was to give back to the community of East Dallas and allow for summer fun for the kids, and free time for busy working parents. I remember growing up and being sent off to various summer sport camps as a kid, and they were always my favorite part about summer. My goal with this camp is to not only help out the future generations of the East Dallas vicinity with summer fun, but to give them a wonderful time to learn, grow, and develop their skills for the future. We want to provide these kids with life long memories and opportunities that will make an everlasting impact.</p>
+                </div>
+            </div>
+
+            <div class="counselors">
+                <h3>The Team Behind the Magic</h3>
+                <div class="counselor-grid">
+                    <div class="counselor-card">
+                        <img src="lyla.png" alt="Counselor 1" class="counselor-img">
+                        <img src="sunny2.png" alt="Counselor 2" class="counselor-img">
+                        <p><strong>Lyla Hale</strong><br>Hey!! My name is Lyla Hale, and I’m thrilled to be part of East Dallas Athletics Camp this summer! I graduated from Woodrow Wilson High School as an International Baccalaureate Diploma recipient and now attend the University of Tennessee, where I’m studying in the nursing program. Sports have always been a huge part of my life. I was a four-year varsity starter and captain of the Lady Wildcats soccer team, helping lead our team to many great wins. I also have plenty of experience working with kids—I’ve been an assistant coach for the Lakewood Lions, a second-grade girls’ YMCA soccer team, and I’ve spent several years working as a lifeguard. I’m passionate about helping young athletes grow their skills and confidence, and I can’t wait to have a fun and inspiring summer with everyone at camp!</p>
+                    </div>
+                    <div class="counselor-card">
+                        <img src="sunny.png" alt="Counselor 2" class="counselor-img">
+                        <img src="lyla2.png" alt="Counselor 2" class="counselor-img">
+                        <p><strong>Sunny Crowell</strong><br>Hi! My name is Sunny Crowell, and I’m so excited to work at East Dallas Athletics Camp 2025! I’ve lived in East Dallas my entire life, and growing up in this amazing community has shaped who I am today. I attended Hexter Elementary, J.L. Long Middle School, and graduated from Woodrow Wilson High School in 2024. I was a competitive gymnast at Ridgewood Gymnastics, competing at Level 9. At Woodrow, I ran track all four years, played golf during my sophomore year, participated in two musicals, and served as varsity cheer captain. I’m currently attending the University of Texas, majoring in Education because of my passion for teaching and mentoring kids. I’ve had lots of experience working with children—from babysitting to teaching at Incarnation Academy’s summer program last year. I can’t wait to help make this summer a fun, positive, and empowering experience for all the young athletes at camp!</p>
+                    </div>
+                    <div class="counselor-card">
+                        <img src="mat1.png" alt="Counselor 3" class="counselor-img">
+                        <img src="mat2.png" alt="Counselor 3" class="counselor-img">
+                        <p><strong>Matthew Casas</strong><br>Hey there! My name is Matthew Casas, and I’m so excited for this year’s camp to kick off! I’m a proud graduate of Woodrow Wilson High School, where I played boys’ volleyball, club volleyball, and basketball. I’m now heading into my sophomore year at the University of Texas, majoring in Advertising and Communication. Camps have always been a big part of my life—my dad managed Ridgewood Recreation Center and ran the summer camp there, so I grew up learning what it takes to create a fun and safe environment for kids. That experience has really shaped the kind of camp counselor I strive to be. Before joining EDAC, I worked as a lifeguard for the City of Dallas for three years, and I’m currently CPR certified through the American Red Cross. I’m really looking forward to making a positive impact and helping your kids have an unforgettable camp experience!</p>
+                     </div>
+                    <div class="counselor-card">
+                        <img src="zach1.png" alt="Counselor 3" class="counselor-img">
+                        <img src="zach2.png" alt="Counselor 3" class="counselor-img">
+                        <p><strong>Zach Lewis</strong><br>Hi! My name is Zach Lewis and I am extremely excited to be a part of the staff for the East Dallas Athletics Camp this summer! I’ve lived in the Lakewood area my whole life. I attended Lakewood Elementary and graduated from Woodrow Wilson High School. During high school at Woodrow, I played varsity baseball, and sports in general were a huge part of my life. Currently, I attend the University of Arkansas, majoring in Finance. I have always had a passion for working with kids, as I feel I can get on their level and understand their emotions really well. I also have a ton of experience with kids, including being a co-founder of the Kickoff Sports Dallas nonprofit organization, where we hosted sports summer camps often. I am also a lifeguard at the Tietze Park Pool. I’m truly looking forward to having an amazing summer with these young athletes and helping them grow not only athletically, but as people too!!</p>
+                    </div>
+                  <div class="counselor-card">
+                        <img src="everett.png" alt="Counselor 3" class="counselor-img">
+                        <img src="everett 2.png" alt="Counselor 3" class="counselor-img">
+                        <p><strong>Everett Scott</strong><br>Hi! I’m Everett Scott, and I’m so excited to be part of East Dallas Athletic Camp this summer! I’ve lived in East Dallas my whole life and have loved connecting with the community through babysitting and spending time with local families. I attended Woodrow Wilson High School, where I was involved in several clubs and played on the tennis team my junior year. I’m now at Colorado State University in the Honors Program, studying Fine Arts and Merchandising/Marketing. Sports, and especially sports camps, have been a huge part of my life since I was little. I grew up attending gymnastics, basketball, and tennis camps with friends and family, and I have so many great memories. I’m passionate about working with kids and helping them realize how strong, capable, and confident they truly are. I can’t wait to be a positive role model, make new memories, and have an awesome summer together!</p>
+                    </div>
+                    <!-- Add more counselor cards as needed -->
+                </div>
+            </div>
+            
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="quotes" class="section">
+            <h2>Kids Love EDAC and Parents Love Us Even More!</h2>
+            <blockquote>
+                <p>“One of the highlights of my 10-year-old son's year was spending 4 days at camp with Logan and Hudson. Not only did he build a little more stamina and endurance, he gained confidence. You can easily see the leadership each of the coaches brings to the table. My son had no complaints and that's a first lol.”</p>
+                <footer>- Shelly</footer>
+            </blockquote>
+            <blockquote>
+                <p>“I just showed Sam your message and his response was 'Everything was perfect! I wouldn't change a thing!' So, thank you!! Sam was very hesitant to go, but by the end, he wanted to return every day. Thank you for providing some screen-free summer fun!!”</p>
+                <footer>- Elizabeth</footer>
+            </blockquote>
+            <blockquote>
+                <p>“Thanks so much for providing community and activity and mentorship for our kids. Keep me posted if y'all do any camps next summer. Appreciate you!”</p>
+                <footer>- Whitney</footer>
+            </blockquote>
+            <blockquote>
+                <p>“His favorite part was doing different sports. His least favorite was he wished the camp was longer.”</p>
+                <footer>- Finnegan</footer>
+            </blockquote>
+        </section>
+
+        <!-- Camp Details Section -->
+        <section id="details" class="section">
+            <h2>Camp Details</h2>
+            <ul>
+        <div class="camp-details">
+
+  <p><strong>📅 Dates:</strong><br> June 8-12 | June 22-26 | July 6-10 | July 13-17 | July 27-31</p>
+  <p><strong>📍 Location:</strong><br> Zion Lutheran Church, 6121 E Lovers Ln, Dallas, TX 75214</p>
+  <p><strong>⏰ Schedule:</strong><br> Monday–Friday, 9:00 AM – 3:00 PM</p>
+  <p><strong>🎒 What to Bring:</strong><br> - Packed lunch<br> - Refillable water bottle<br> *(A healthy snack is provided daily!)*</p>
+  <p><strong>👨👩 Ages:</strong><br> 7–12 years (Boys & Girls)</p>
+  <p><strong>💲 Cost:</strong><br> $365 per week</p>
+  <p><strong>💳 Payment Methods:</strong></p>
+  <div class="payment-methods">
+    <p>✔ Venmo: @edacamp</p>
+    <p>✔ Cash App: @edacamp</p>
+    
+  </div>
+</div>
+
+
+</div>
+    
+                
+            
+        </section>
+
+        <!-- Facilities Section -->
+        <section id="facilities" class="section">
+            <h2>State-of-the-Art Facilities</h2>
+            <div class="facilities-gallery">
+                <img src="gym1.png" alt="Facility Image 1">
+                <img src="gym2.png" alt="Facility Image 2">
+                <img src="gym3.png" alt="Facility Image 3">
+                <img src="lobby1.png" alt="Facility Image 4">
+                <img src="lobby2.png" alt="Facility Image 5">
+            </div>
+        </section>
+
+        <!-- Sign Up Section -->
+        <section id="signup" class="section">
+            <h2>Sign Up</h2>
+            <iframe
+                src="https://docs.google.com/forms/d/e/1FAIpQLSeU34UkgV_HgBvnb44rSnNmWwKtUA_4qPesAjk7zqLEpJ6mNw/viewform?usp=header"
+                width="100%"
+                height="800"
+                frameborder="0"
+                marginheight="0"
+                marginwidth="0">Loading…</iframe>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq">
+                <div class="faq-item">
+                    <div class="faq-question">How many years have you all worked at summer camps and which camps have you worked at?</div>
+                    <div class="faq-answer">
+                        <p>This is EDAC's second year running, led by Hudson and Logan, who both have extensive experience working with kids in various camp and activity settings. Before starting their own camp, Hudson worked as a counselor at Friends of Lakewood (FOL), an assistant at Woodrow Baseball Camp, and a counselor for Studio Bella at White Rock United Methodist Church. Logan also has a strong background in working with kids—he is a CPR-certified lifeguard and has worked at Woodrow Basketball Camps. Additionally, both have dedicated many hours to volunteering in local schools through the Young Men’s Service League (YMSL), a community service organization.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What should my child bring to camp?</div>
+                    <div class="faq-answer">
+                        <p>Campers must bring a refillable water bottle (we’ll have refill stations available), their own lunch in a secure lunchbox, and athletic clothing with closed-toe shoes. A healthy snack will be provided daily.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Since the camp is held at a church, are there any religious practices that take place during camp?</div>
+                    <div class="faq-answer">
+                        <p>There will be no religious practices that take place during our camp. While we hold camp at a church for its convenient space and resources, our program is entirely secular. We want to focus on creating a fun, inclusive environment where all kids feel welcome, regardless of their background or beliefs.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">How do I sign up?</div>
+                    <div class="faq-answer">
+                        <p>You can sign up by filling out the form in the "Sign Up" section above. Once registered, you will receive a confirmation email with additional details about camp.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What is the kid-to-counselor ratio?</div>
+                    <div class="faq-answer">
+                        <p>Our kid-to-counselor ratio will be a maximum of 1:10. We have a strong pool of counselors who are well-suited for the role, each with extensive experience working with children. If selected for EDAC, their full bio and achievements will be featured on our website and social media channels.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Where is drop-off and pick-up?</div>
+                    <div class="faq-answer">
+                        <p>Drop-off will be on the south side of the building on E. Lovers Ln, in the ROC parking lot. (Look for the lot closer to Skillman, as there are two along Lovers Ln.)</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">When are payments due?</div>
+                    <div class="faq-answer">
+                        <p>All payments are due two weeks before your selected week of camp. This ensures we can staff appropriately and have all supplies ready to go. Thank you for understanding and helping us keep things running smoothly!</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What security measures are in place to ensure my child's safety?</div>
+                    <div class="faq-answer">
+                        <p>EDAC is hosted in a closed environment, and the only people within the confines of EDAC camp are those who have checked in through our check-in procedures. All entry doors will remain locked during camp hours, and only authorized individuals will be permitted inside. In the event of an injury, we have first aid kits on-site, and if the situation is serious, 911 will be called, and parents will be notified immediately.</p>
+                    </div>
+                <div class="faq-item">
+                    <div class="faq-question">What is the refund policy?</div>
+                    <div class="faq-answer">
+                        <p>All registrations for East Dallas Athletics Camp (EDAC) are final. Due to the nature of camp planning, staffing, and scheduling, we do not offer refunds for cancellations, no-shows, or partial attendance.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <h2>Contact Us</h2>
+            <ul>
+                <li><strong>Hudson Wilk:</strong> hudsonwilk@utexas.edu | 214-957-8713</li>
+                <li><strong>Logan Mabry:</strong> loganmabry@icloud.com | 972-762-2407</li>
+                <li><strong>Instagram:</strong> @eastdallasathleticscamp</li>
+                <li><strong>Facebook:</strong> East Dallas Athletics Camp</li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 East Dallas Athletics Camp. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // JavaScript for FAQ Accordion
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                question.classList.toggle('active');
+                const answer = question.nextElementSibling;
+                if (answer.style.maxHeight) {
+                    answer.style.maxHeight = null;
+                    answer.style.padding = '0 15px';
+                } else {
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                    answer.style.padding = '15px';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

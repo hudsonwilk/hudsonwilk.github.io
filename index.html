@@ -1,621 +1,1037 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>East Dallas Athletics Camp</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
-    <style>
-        /* General Styles */
-        body {
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            color: #333;
-            background-color: #f9f9f9;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>East Dallas Athletics Camp</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap');
 
-        /* Sleeker Header with Parallax Effect */
-        .parallax {
-            background-image: url('cover1.png'); /* Replace with your facility image */
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-        }
-
-        .parallax h1 {
-            font-size: 4.5rem;
-            font-family: 'Poppins', sans-serif; /* Sleeker font */
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            background: rgba(0, 0, 0, 0.6); /* Semi-transparent overlay */
-            padding: 20px 40px;
-            border-radius: 10px;
-            animation: fadeIn 2s ease-in-out;
-        }
-
-        .parallax p {
-            font-size: 1.5rem;
-            margin-top: 10px;
-            font-family: 'Poppins', sans-serif;
-            background: rgba(0, 0, 0, 0.6);
-            padding: 10px 20px;
-            border-radius: 5px;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Mobile Responsive Styles */
-        @media (max-width: 768px) {
-            .parallax h1 {
-                font-size: 2.5rem; /* Smaller font size for mobile */
-                letter-spacing: 2px;
-                padding: 15px 20px;
-            }
-
-            .parallax p {
-                font-size: 1.2rem; /* Smaller font size for mobile */
-                padding: 8px 15px;
-            }
-
-            .parallax {
-                background-attachment: scroll; /* Disable parallax on mobile */
-                height: 70vh; /* Reduce height for mobile */
-            }
-        }
-         .founder {
-        flex: 1 1 100%;
-        max-width: 100%;
-    }
-
-        @media (max-width: 480px) {
-            .parallax h1 {
-                font-size: 2rem; /* Even smaller font size for very small screens */
-                padding: 10px 15px;
-            }
-
-            .parallax p {
-                font-size: 1rem;
-                padding: 5px 10px;
-            }
-
-            .parallax {
-                height: 60vh; /* Further reduce height for very small screens */
-            }
-        }
-
-        /* Navigation Bar */
-        .navbar {
-            background-color: #333;
-            overflow: hidden;
-            width: 100%;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .navbar ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap; /* Allow wrapping on small screens */
-        }
-
-        .navbar li {
-            margin: 0;
-        }
-
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            padding: 14px 20px;
-            display: block;
-            font-size: 1rem;
-            transition: background 0.3s ease;
-        }
-
-        .navbar a:hover {
-            background-color: #575757;
-        }
-
-        /* Sections */
-        .section {
-            padding: 40px 20px; /* Reduced padding for mobile */
-            background: white;
-            margin: 20px auto;
-            width: 90%;
-            max-width: 1200px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .section h2 {
-            color: #F5E874;
-            font-size: 2rem; /* Smaller heading for mobile */
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        /* Founders Section */
-   
-       .founders {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-    justify-content: center;
-    padding-top: 20px;
+:root {
+--primary: #1a5fb4;
+--primary-dark: #0f3d7a;
+--accent: #f57c20;
+--accent-light: #ff9a44;
+--dark: #1a1a2e;
+--gray-900: #212529;
+--gray-700: #495057;
+--gray-500: #6c757d;
+--gray-200: #e9ecef;
+--gray-100: #f8f9fa;
+--white: #ffffff;
+--radius: 16px;
+--radius-sm: 10px;
+--shadow: 0 4px 24px rgba(0,0,0,0.08);
+--shadow-lg: 0 12px 48px rgba(0,0,0,0.12);
+--transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.founder {
-    flex: 1 1 45%;
-    max-width: 500px;
-    text-align: center;
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+* { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+  body { font-family: ‘Inter’, sans-serif; color: var(--gray-900); line-height: 1.7; overflow-x: hidden; }
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--gray-100); }
+::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 4px; }
+
+/* ── NAV ── */
+.nav {
+position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+padding: 16px 40px;
+display: flex; align-items: center; justify-content: space-between;
+transition: var(--transition);
+background: transparent;
+}
+.nav.scrolled {
+background: rgba(255,255,255,0.95);
+backdrop-filter: blur(20px);
+box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+padding: 10px 40px;
+}
+.nav-logo {
+font-family: ‘Outfit’, sans-serif;
+font-weight: 800; font-size: 1.4rem; color: var(--white);
+text-decoration: none; letter-spacing: -0.5px;
+}
+.nav.scrolled .nav-logo { color: var(--primary-dark); }
+.nav-links { display: flex; gap: 32px; list-style: none; align-items: center; }
+.nav-links a {
+text-decoration: none; color: rgba(255,255,255,0.9);
+font-weight: 500; font-size: 0.9rem; letter-spacing: 0.3px;
+transition: var(--transition); position: relative;
+}
+.nav.scrolled .nav-links a { color: var(--gray-700); }
+.nav-links a:hover { color: var(--accent); }
+.nav-links .btn-nav {
+background: var(--accent); color: white !important;
+padding: 10px 24px; border-radius: 50px; font-weight: 600;
+}
+.nav-links .btn-nav:hover { background: var(--accent-light); transform: translateY(-1px); }
+.hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; z-index: 1001; }
+.hamburger span { width: 26px; height: 2.5px; background: white; border-radius: 2px; transition: var(--transition); }
+.nav.scrolled .hamburger span { background: var(--gray-900); }
+
+/* ── FLOATING CTA ── */
+.floating-cta {
+position: fixed; bottom: 28px; right: 28px; z-index: 999;
+display: flex; flex-direction: column; align-items: center; gap: 6px;
+text-decoration: none; transition: var(--transition);
+animation: cta-bounce 2s ease-in-out infinite;
+}
+.floating-cta-btn {
+width: 60px; height: 60px; border-radius: 50%;
+background: var(--accent); color: white;
+display: flex; align-items: center; justify-content: center;
+font-size: 1.4rem; box-shadow: 0 6px 24px rgba(245,124,32,0.45);
+transition: var(--transition);
+}
+.floating-cta:hover .floating-cta-btn {
+background: var(--accent-light); transform: scale(1.1);
+box-shadow: 0 8px 32px rgba(245,124,32,0.55);
+}
+.floating-cta-label {
+background: var(--gray-900); color: white;
+padding: 5px 12px; border-radius: 6px; font-size: 0.72rem;
+font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
+white-space: nowrap;
+}
+@keyframes cta-bounce {
+0%, 100% { transform: translateY(0); }
+50% { transform: translateY(-6px); }
 }
 
-.founder:hover {
-    transform: translateY(-5px);
+/* ── HERO ── */
+.hero {
+min-height: 100vh; display: flex; align-items: center; justify-content: center;
+background: linear-gradient(135deg, #0a1628 0%, #1a3a6b 50%, #1a5fb4 100%);
+position: relative; overflow: hidden; text-align: center; padding: 120px 20px 80px;
 }
-        .founder-img {
-            width: 120px; /* Smaller image for mobile */
-            height: 120px;
-            object-fit: cover;
-            border-radius: 50%;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            margin-bottom: 15px;
-        }
+.hero::before {
+content: ‘’; position: absolute; inset: 0;
+background: url(‘data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.03" d="M0,224L48,213.3C96,203,192,181,288,186.7C384,192,480,224,576,218.7C672,213,768,171,864,165.3C960,160,1056,192,1152,197.3C1248,203,1344,181,1392,170.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>’) no-repeat bottom/cover;
+}
+.hero-particles { position: absolute; inset: 0; overflow: hidden; }
+.particle {
+position: absolute; border-radius: 50%; background: rgba(255,255,255,0.08);
+animation: float linear infinite;
+}
+@keyframes float {
+0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+10% { opacity: 1; }
+90% { opacity: 1; }
+100% { transform: translateY(-100px) rotate(720deg); opacity: 0; }
+}
+.hero-content { position: relative; z-index: 2; max-width: 800px; }
+.hero-badge {
+display: inline-block; background: rgba(245,124,32,0.2); border: 1px solid rgba(245,124,32,0.4);
+color: var(--accent-light); padding: 8px 20px; border-radius: 50px;
+font-size: 0.85rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+margin-bottom: 24px;
+}
+.hero h1 {
+font-family: ‘Outfit’, sans-serif; font-size: clamp(2.8rem, 6vw, 5rem);
+font-weight: 900; color: white; line-height: 1.1; margin-bottom: 20px;
+letter-spacing: -2px;
+}
+.hero h1 span { color: var(--accent); }
+.hero p {
+color: rgba(255,255,255,0.8); font-size: 1.15rem; max-width: 560px;
+margin: 0 auto 36px; line-height: 1.8;
+}
+.hero-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.btn {
+display: inline-flex; align-items: center; gap: 8px;
+padding: 14px 32px; border-radius: 50px; font-weight: 600;
+font-size: 1rem; text-decoration: none; transition: var(--transition); border: none; cursor: pointer;
+}
+.btn-primary { background: var(--accent); color: white; }
+.btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(245,124,32,0.35); }
+.btn-outline { background: transparent; color: white; border: 2px solid rgba(255,255,255,0.3); }
+.btn-outline:hover { border-color: white; background: rgba(255,255,255,0.1); }
+.hero-stats {
+display: flex; justify-content: center; gap: 48px; margin-top: 60px;
+padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.1);
+}
+.stat { text-align: center; }
+.stat-num { font-family: ‘Outfit’, sans-serif; font-size: 2.2rem; font-weight: 800; color: white; }
+.stat-label { color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-top: 4px; }
 
-        .founder h3 {
-            margin-top: 0;
-            color: #F5E874;
-            font-size: 1.5rem;
-        }
+/* ── SECTIONS ── */
+section { padding: 100px 20px; }
+.container { max-width: 1100px; margin: 0 auto; }
+.section-label {
+display: inline-block; font-size: 0.8rem; font-weight: 700; letter-spacing: 2px;
+text-transform: uppercase; color: var(--accent); margin-bottom: 12px;
+}
+.section-title {
+font-family: ‘Outfit’, sans-serif; font-size: clamp(2rem, 4vw, 2.8rem);
+font-weight: 800; color: var(--gray-900); line-height: 1.2; margin-bottom: 16px;
+letter-spacing: -1px;
+}
+.section-subtitle {
+color: var(--gray-500); font-size: 1.05rem; max-width: 600px; line-height: 1.8;
+}
+.text-center { text-align: center; }
+.text-center .section-subtitle { margin: 0 auto; }
 
-        .founder p {
-            margin: 0 0 10px;
-            line-height: 1.6;
-            color: #333;
-        }
+/* ── ABOUT ── */
+#about { background: var(--white); }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 48px; align-items: center; }
+.about-img {
+border-radius: var(--radius); overflow: hidden; aspect-ratio: 4/3;
+display: flex; align-items: center; justify-content: center;
+max-width: 100%;
+}
+.about-img img {
+width: 100%; height: 100%; object-fit: cover; max-width: 100%;
+}
+@media (max-width: 768px) {
+.about-grid .about-img { min-width: 0; box-sizing: border-box; }
+.about-grid .about-img img { max-width: 100%; }
+}
+.placeholder-img {
+width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+background: linear-gradient(135deg, #e8f1fc 0%, #d0e2f5 100%);
+color: var(--primary); font-size: 3rem;
+}
+.about-text p { color: var(--gray-700); margin-bottom: 16px; font-size: 1rem; }
+.about-highlights {
+display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px;
+}
+.highlight-item {
+display: flex; align-items: center; gap: 12px;
+padding: 12px 16px; border-radius: var(--radius-sm);
+background: var(--gray-100);
+}
+.highlight-item i { color: var(--accent); font-size: 1.1rem; }
+.highlight-item span { font-weight: 600; font-size: 0.9rem; }
 
-        /* Testimonials */
-        blockquote {
-            margin: 20px 0;
-            padding: 20px;
-            background: #f4f4f4;
-            border-left: 5px solid #F5E874;
-            font-style: italic;
-        }
+/* ── CAROUSEL (shared for founders + team) ── */
+.carousel-wrapper { position: relative; margin-top: 48px; overflow: hidden; }
+.carousel-track {
+display: flex; transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+cursor: grab; width: 100%;
+}
+.carousel-track.grabbing { cursor: grabbing; }
+.carousel-track:active { cursor: grabbing; }
 
-        blockquote footer {
-            margin-top: 10px;
-            text-align: right;
-            font-size: 0.9rem;
-            color: #555;
-        }
+/* Founder cards inside carousel — one full slide per step */
+.founder-slide {
+flex: 0 0 calc(100% / var(--carousel-total, 2));
+min-width: 0; display: flex; justify-content: center; padding: 0 20px;
+}
+.founder-card {
+background: white; border-radius: var(--radius); overflow: hidden;
+box-shadow: var(--shadow); transition: var(--transition); max-width: 520px; width: 100%;
+}
+.founder-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.founder-img {
+height: 300px; background: linear-gradient(135deg, #1a5fb4 0%, #0f3d7a 100%);
+display: flex; align-items: center; justify-content: center;
+}
+.founder-img img { width: 100%; height: 100%; object-fit: cover; }
+.founder-info { padding: 28px; text-align: left; }
+.founder-info h3 { font-family: ‘Outfit’, sans-serif; font-size: 1.4rem; font-weight: 700; margin-bottom: 4px; }
+.founder-info .role { color: var(--accent); font-weight: 600; font-size: 0.85rem; margin-bottom: 12px; }
+.founder-info .bio-short { color: var(--gray-700); font-size: 0.92rem; line-height: 1.7; }
+.founder-info .bio-full { display: none; color: var(--gray-700); font-size: 0.92rem; line-height: 1.7; margin-top: 8px; }
+.founder-info .bio-full.open { display: block; }
+.read-more-btn {
+background: none; border: none; color: var(--primary); font-weight: 600;
+font-size: 0.88rem; cursor: pointer; margin-top: 10px; padding: 0;
+display: inline-flex; align-items: center; gap: 4px; transition: var(--transition);
+}
+.read-more-btn:hover { color: var(--accent); }
 
-        /* Facilities Gallery */
-        .facilities-gallery {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-        }
+/* Team cards inside carousel — one full slide per step */
+.team-slide {
+flex: 0 0 calc(100% / var(--carousel-total, 5));
+min-width: 0; padding: 0 10px;
+}
+.team-card {
+background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius);
+overflow: hidden; transition: var(--transition); cursor: pointer; height: 100%;
+}
+.team-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: transparent; }
+.team-card-img {
+height: 220px; background: linear-gradient(135deg, #e8f1fc 0%, #c5d9f0 100%);
+display: flex; align-items: center; justify-content: center; overflow: hidden;
+}
+.team-card-img img { width: 100%; height: 100%; object-fit: cover; }
+.team-card-body { padding: 20px; text-align: left; }
+.team-card-body h4 { font-family: ‘Outfit’, sans-serif; font-size: 1.1rem; font-weight: 700; }
+.team-card-body .team-role { color: var(--primary); font-size: 0.8rem; font-weight: 600; margin: 4px 0 8px; }
+.team-card-body .team-bio-short { color: var(--gray-500); font-size: 0.85rem; }
+.team-card-body .team-bio-full { display: none; color: var(--gray-700); font-size: 0.88rem; line-height: 1.7; margin-top: 8px; }
+.team-card-body .team-bio-full.open { display: block; }
 
-        .facilities-gallery img {
-            width: calc(100% / 2 - 20px); /* 2 images per row on mobile */
-            max-width: 350px;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
+/* Carousel controls */
+.carousel-controls {
+display: flex; align-items: center; justify-content: center; gap: 20px; margin-top: 28px;
+}
+.carousel-btn {
+width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--gray-200);
+background: white; color: var(--gray-700); display: flex; align-items: center; justify-content: center;
+cursor: pointer; transition: var(--transition); font-size: 0.9rem;
+}
+.carousel-btn:hover { border-color: var(--primary); color: var(--primary); background: #e8f1fc; }
+.carousel-indicators { display: flex; gap: 8px; }
+.carousel-ind {
+width: 8px; height: 8px; border-radius: 50%; background: var(--gray-200);
+border: none; cursor: pointer; transition: var(--transition);
+}
+.carousel-ind.active { background: var(--accent); width: 24px; border-radius: 4px; }
 
-        .facilities-gallery img:hover {
-            transform: scale(1.05);
-        }
+/* ── FOUNDERS ── */
+#founders { background: var(--gray-100); }
 
-        /* FAQ Section */
-        .faq {
-            margin-top: 40px;
-        }
+/* ── TEAM ── */
+#team { background: var(--white); }
 
-        .faq-item {
-            border-bottom: 1px solid #ddd;
-            margin-bottom: 10px;
-        }
+/* ── TESTIMONIALS ── */
+#testimonials {
+background: linear-gradient(135deg, #0a1628 0%, #1a3a6b 50%, #1a5fb4 100%);
+color: white; position: relative; overflow: hidden;
+}
+.testimonial-carousel { position: relative; max-width: 700px; margin: 48px auto 0; min-height: 240px; }
+.testimonial-slide {
+position: absolute; inset: 0; opacity: 0; transform: translateX(40px);
+transition: all 0.5s ease; pointer-events: none; display: flex; flex-direction: column; justify-content: center;
+}
+.testimonial-slide.active { opacity: 1; transform: translateX(0); pointer-events: auto; }
+.testimonial-quote {
+font-size: 1.15rem; line-height: 1.9; font-style: italic;
+color: rgba(255,255,255,0.9); position: relative; padding-left: 24px;
+border-left: 3px solid var(--accent);
+}
+.testimonial-author { margin-top: 20px; padding-left: 24px; }
+.testimonial-author strong { color: var(--accent-light); font-size: 1rem; }
+.carousel-dots { display: flex; justify-content: center; gap: 10px; margin-top: 32px; }
+.dot {
+width: 10px; height: 10px; border-radius: 50%;
+background: rgba(255,255,255,0.3); border: none; cursor: pointer; transition: var(--transition);
+}
+.dot.active { background: var(--accent); width: 28px; border-radius: 5px; }
 
-        .faq-question {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #333;
-            padding: 15px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: background 0.3s ease;
-        }
-
-        .faq-question:hover {
-            background: #f4f4f4;
-        }
-
-        .faq-question::after {
-            content: '+';
-            font-size: 1.5rem;
-            color: #F5E874;
-        }
-
-        .faq-question.active::after {
-            content: '-';
-        }
-
-        .faq-answer {
-            padding: 0 15px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
-        }
-
-        .faq-answer p {
-            margin: 10px 0;
-        }
-
-        /* Counselors Section */
-        .counselors {
-            margin-top: 60px;
-            text-align: center;
-        }
-        
-        .counselors h3 {
-            font-size: 1.8rem;
-            color: #F5E874;
-            margin-bottom: 30px;
-        }
-        
-        .counselor-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            justify-items: center;
-        }
-        
-        .counselor-card {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            width: 100%;
-            max-width: 500px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-        
-        .counselor-img {
-            width: 120px;
-            height: 120px;
-            object-fit: cover;
-            border-radius: 50%;
-            margin-bottom: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        
-        .counselor-card p {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: #333;
-        }
-
-
-        /* Footer */
-        .footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-            margin-top: 40px;
-            font-size: 0.9rem;
-        }
-        .about-text {
-    max-width: 900px;
-    margin: 0 auto;
-    text-align: center;
+/* ── CAMP DETAILS ── */
+#details { background: var(--gray-100); }
+.details-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 48px; }
+.detail-card {
+background: white; border-radius: var(--radius); padding: 28px;
+box-shadow: var(--shadow); transition: var(--transition); border-top: 4px solid transparent;
+}
+.detail-card:hover { transform: translateY(-4px); border-top-color: var(--accent); }
+.detail-card i { font-size: 1.8rem; color: var(--primary); margin-bottom: 16px; }
+.detail-card h4 { font-family: ‘Outfit’, sans-serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; }
+.detail-card p, .detail-card ul { color: var(--gray-700); font-size: 0.92rem; }
+.detail-card ul { list-style: none; }
+.detail-card ul li { padding: 4px 0; }
+.detail-card ul li::before { content: ’→ ’; color: var(--accent); font-weight: 700; }
+.price-tag {
+display: inline-block; background: linear-gradient(135deg, var(--accent), var(--accent-light));
+color: white; font-family: ‘Outfit’, sans-serif; font-size: 1.8rem; font-weight: 800;
+padding: 8px 24px; border-radius: var(--radius-sm); margin-bottom: 8px;
 }
 
-        .video-wrapper {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 ratio */
-    height: 0;
-    overflow: hidden;
-    max-width: 100%;
-    margin: 0 auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+/* ── FACILITIES ── */
+#facilities { background: var(--white); }
+.facilities-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 48px; }
+.facility-item {
+border-radius: var(--radius); overflow: hidden; aspect-ratio: 4/3;
+background: linear-gradient(135deg, #e8f1fc, #d0e2f5); position: relative; cursor: pointer;
+transition: var(--transition);
+}
+.facility-item:hover { transform: scale(1.02); }
+.facility-item:first-child { grid-column: span 2; grid-row: span 2; aspect-ratio: auto; }
+.facility-item img { width: 100%; height: 100%; object-fit: cover; }
+.facility-overlay {
+position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+display: flex; align-items: flex-end; padding: 20px; opacity: 0; transition: var(--transition);
+}
+.facility-item:hover .facility-overlay { opacity: 1; }
+.facility-overlay span { color: white; font-weight: 600; }
+
+/* ── SIGNUP ── */
+#signup {
+background: linear-gradient(135deg, #0a1628 0%, #1a3a6b 100%);
+color: white; text-align: center;
+}
+#signup .section-title { color: white; }
+#signup .section-subtitle { color: rgba(255,255,255,0.7); }
+.signup-wrapper { margin-top: 40px; }
+.signup-form-container {
+background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+border-radius: var(--radius); overflow: hidden; max-width: 720px; margin: 0 auto;
+backdrop-filter: blur(10px);
+}
+.signup-form-container iframe {
+width: 100%; height: 1400px; border: none;
+}
+.payment-info {
+display: flex; gap: 24px; justify-content: center; margin-top: 24px; flex-wrap: wrap;
+}
+.payment-method {
+display: flex; align-items: center; gap: 8px;
+color: rgba(255,255,255,0.7); font-size: 0.9rem;
+background: rgba(255,255,255,0.08); padding: 10px 20px; border-radius: 50px;
 }
 
-.video-wrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
+/* ── FAQ ── */
+#faq { background: var(--white); }
+.faq-list { max-width: 740px; margin: 48px auto 0; }
+.faq-item { border-bottom: 1px solid var(--gray-200); overflow: hidden; }
+.faq-question {
+width: 100%; background: none; border: none; text-align: left;
+padding: 20px 0; font-size: 1rem; font-weight: 600; color: var(--gray-900);
+cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+font-family: ‘Inter’, sans-serif; transition: var(--transition);
+}
+.faq-question:hover { color: var(--primary); }
+.faq-question i { transition: transform 0.3s ease; color: var(--accent); font-size: 0.85rem; }
+.faq-item.open .faq-question i { transform: rotate(45deg); }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+.faq-answer-inner { padding: 0 0 20px; color: var(--gray-700); font-size: 0.95rem; line-height: 1.8; }
+
+/* ── CONTACT ── */
+#contact { background: var(--gray-100); }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 48px; }
+.contact-card {
+background: white; border-radius: var(--radius); padding: 32px;
+box-shadow: var(--shadow); transition: var(--transition);
+}
+.contact-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.contact-card h4 { font-family: ‘Outfit’, sans-serif; font-size: 1.2rem; font-weight: 700; margin-bottom: 16px; }
+.contact-card a { display: flex; align-items: center; gap: 10px; color: var(--gray-700); text-decoration: none; padding: 6px 0; transition: var(--transition); font-size: 0.95rem; }
+.contact-card a:hover { color: var(--primary); }
+.contact-card a i { color: var(--primary); width: 20px; text-align: center; }
+.social-links { display: flex; gap: 16px; margin-top: 32px; justify-content: center; }
+.social-link {
+width: 48px; height: 48px; border-radius: 50%;
+background: var(--primary); color: white; display: flex; align-items: center; justify-content: center;
+text-decoration: none; font-size: 1.2rem; transition: var(--transition);
+}
+.social-link:hover { background: var(--accent); transform: translateY(-3px); }
+
+/* ── FOOTER ── */
+footer {
+background: var(--dark); color: rgba(255,255,255,0.5);
+padding: 40px 20px; text-align: center; font-size: 0.85rem;
+}
+footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
+
+/* ── MOBILE MENU ── */
+.mobile-menu {
+display: none; position: fixed; inset: 0; background: rgba(10,22,40,0.98);
+z-index: 999; flex-direction: column; align-items: center; justify-content: center; gap: 28px;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+color: white; text-decoration: none; font-size: 1.3rem; font-weight: 600;
+font-family: ‘Outfit’, sans-serif;
 }
 
-    </style>
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+.team-slide { flex: 0 0 calc(100% / var(--carousel-total, 5)); }
+}
+@media (max-width: 768px) {
+.nav-links { display: none; }
+.hamburger { display: flex; }
+.hero h1 { font-size: 2.4rem; }
+.hero-stats { gap: 24px; flex-wrap: wrap; }
+.about-grid, .contact-grid { grid-template-columns: 1fr; }
+.facilities-grid { grid-template-columns: 1fr 1fr; }
+.facilities-grid .facility-item:first-child { grid-column: span 2; }
+.details-grid { grid-template-columns: 1fr; }
+section { padding: 70px 16px; }
+.nav { padding: 14px 20px; }
+.team-slide { flex: 0 0 calc(100% / var(--carousel-total, 5)); }
+.floating-cta { bottom: 18px; right: 18px; }
+.floating-cta-btn { width: 52px; height: 52px; font-size: 1.2rem; }
+.signup-form-container iframe { height: 1500px; }
+}
+</style>
+
 </head>
 <body>
-    <!-- Sleeker Parallax Header -->
-    <div class="parallax">
-        <h1>East Dallas Athletics Camp</h1>
-        <!-- <p>Where Fun Meets Fitness!</p> -->
+
+<!-- NAV -->
+
+<nav class="nav" id="navbar">
+  <a href="#" class="nav-logo">EDAC</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#founders">Founders</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#details">Details</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#signup" class="btn-nav">Sign Up</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="toggleMenu()">About</a>
+  <a href="#founders" onclick="toggleMenu()">Founders</a>
+  <a href="#team" onclick="toggleMenu()">Team</a>
+  <a href="#details" onclick="toggleMenu()">Details</a>
+  <a href="#faq" onclick="toggleMenu()">FAQ</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+  <a href="#signup" onclick="toggleMenu()" class="btn btn-primary">Sign Up</a>
+</div>
+
+<!-- FLOATING CTA -->
+
+<a href="#signup" class="floating-cta" id="floatingCta">
+  <div class="floating-cta-btn"><i class="fas fa-arrow-down"></i></div>
+  <span class="floating-cta-label">Sign Up</span>
+</a>
+
+<!-- HERO -->
+
+<section class="hero">
+  <div class="hero-particles" id="particles"></div>
+  <div class="hero-content">
+    <div class="hero-badge" data-aos="fade-down">Summer 2026</div>
+    <h1 data-aos="fade-up" data-aos-delay="100">East Dallas<br><span>Athletics Camp</span></h1>
+    <p data-aos="fade-up" data-aos-delay="200">The only screen your kid needs this summer is sunscreen. Active days, new friends, and a summer to remember.</p>
+    <div class="hero-btns" data-aos="fade-up" data-aos-delay="300">
+      <a href="#signup" class="btn btn-primary"><i class="fas fa-arrow-right"></i> Sign Up Now</a>
+      <a href="#about" class="btn btn-outline"><i class="fas fa-play"></i> Learn More</a>
+    </div>
+    <div class="hero-stats" data-aos="fade-up" data-aos-delay="400">
+      <div class="stat"><div class="stat-num">5</div><div class="stat-label">Weeks of Camp</div></div>
+      <div class="stat"><div class="stat-num">10+</div><div class="stat-label">Sports & Activities</div></div>
+      <div class="stat"><div class="stat-num">1:10</div><div class="stat-label">Counselor Ratio</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div data-aos="fade-right">
+        <div class="about-img">
+          <img src="cover1.png" alt="East Dallas Athletics Camp">
+        </div>
+      </div>
+      <div data-aos="fade-left">
+        <div class="section-label">About Us</div>
+        <h2 class="section-title">Where Kids Play,<br>Grow & Thrive</h2>
+        <p class="about-text">At East Dallas Athletics Camp (EDAC), our mission is to create a safe, fun, and active environment to remind kids that the only screen they need in the summer is sunscreen.</p>
+        <p style="color: var(--gray-700); font-size: 0.95rem; margin-top: 12px;">Campers spend the week building athletic skills, confidence, and teamwork through a variety of sports—basketball, soccer, dodgeball, kickball, volleyball, spikeball, wiffleball, putter golf, and more—with a focus on fundamentals, agility, and overall athletic development.</p>
+        <div class="about-highlights">
+          <div class="highlight-item"><i class="fas fa-shield-halved"></i><span>Safe & Secure</span></div>
+          <div class="highlight-item"><i class="fas fa-trophy"></i><span>All Skill Levels</span></div>
+          <div class="highlight-item"><i class="fas fa-users"></i><span>Ages 7–12</span></div>
+          <div class="highlight-item"><i class="fas fa-heart"></i><span>Screen-Free Fun</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDERS (Carousel) -->
+
+<section id="founders">
+  <div class="container text-center">
+    <div class="section-label" data-aos="fade-up">Meet the Founders</div>
+    <h2 class="section-title" data-aos="fade-up">The Guys Behind EDAC</h2>
+    <p class="section-subtitle" data-aos="fade-up">Lifelong friends, East Dallas natives, and passionate about giving back to their community.</p>
+    <div class="carousel-wrapper" data-aos="fade-up">
+      <div class="carousel-track" id="founderTrack">
+        <div class="founder-slide">
+          <div class="founder-card">
+            <div class="founder-img"><img src="hud prof.JPG" alt="Hudson Wilk"></div>
+            <div class="founder-info">
+              <h3>Hudson Wilk</h3>
+              <div class="role">Co-Founder</div>
+              <p class="bio-short">UT Austin — Advertising & Business Marketing. Woodrow Wilson HS Varsity Baseball Captain, IB Diploma recipient, and 4-year NHS member.</p>
+              <p class="bio-full">Growing up in East Dallas through Mockingbird Elementary, William B. Travis, and Woodrow Wilson HS, Hudson's upbringing shaped who he is today. Over the past few summers, working at various camps inspired the idea to start EDAC with his dear friend Logan. His main goal is to provide an unforgettable experience to the younger generation—not only a safe, enjoyable environment during the long summer months but also mentorship, helping kids develop through a fun and inclusive process.</p>
+              <button class="read-more-btn" onclick="event.stopPropagation(); toggleBio(this)">Read More <i class="fas fa-chevron-right"></i></button>
+            </div>
+          </div>
+        </div>
+        <div class="founder-slide">
+          <div class="founder-card">
+            <div class="founder-img"><img src="log prof.jpeg" alt="Logan Mabry"></div>
+            <div class="founder-info">
+              <h3>Logan Mabry</h3>
+              <div class="role">Co-Founder</div>
+              <p class="bio-short">Colorado State University — Finance. Woodrow Wilson Varsity Basketball Captain, NHS member, former lifeguard at Tietze Pool.</p>
+              <p class="bio-full">Logan grew up through Mockingbird, J.L Long, and Woodrow, where sports camps were always a huge factor in his life. The idea of starting a camp came about last summer, and he knew he and Hudson had a great opportunity to give back. His driving point is to allow summer fun for kids and free time for busy working parents—providing life-long memories and opportunities that will make an everlasting impact on the future generations of East Dallas.</p>
+              <button class="read-more-btn" onclick="event.stopPropagation(); toggleBio(this)">Read More <i class="fas fa-chevron-right"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-controls">
+        <button class="carousel-btn" onclick="moveCarousel('founder', -1)"><i class="fas fa-chevron-left"></i></button>
+        <div class="carousel-indicators" id="founderDots"></div>
+        <button class="carousel-btn" onclick="moveCarousel('founder', 1)"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM (Carousel) -->
+
+<section id="team">
+  <div class="container text-center">
+    <div class="section-label" data-aos="fade-up">Our Counselors</div>
+    <h2 class="section-title" data-aos="fade-up">The Team Behind the Magic</h2>
+    <p class="section-subtitle" data-aos="fade-up">Experienced, CPR-certified, and passionate about youth development.</p>
+    <div class="carousel-wrapper" data-aos="fade-up">
+      <div class="carousel-track" id="teamTrack">
+    <div class="team-slide">
+      <div class="team-card" onclick="toggleTeamBio(this)">
+        <div class="team-card-img"><img src="lyla.png" alt="Lyla Hale"></div>
+        <div class="team-card-body">
+          <h4>Lyla Hale</h4>
+          <div class="team-role">Counselor</div>
+          <p class="team-bio-short">University of Tennessee — Nursing. Woodrow Wilson soccer captain & IB Diploma recipient.</p>
+          <p class="team-bio-full">A four-year varsity starter and captain of the Lady Wildcats soccer team, Lyla has coached the Lakewood Lions YMCA soccer team and spent several years as a lifeguard. She's passionate about helping young athletes grow their skills and confidence.</p>
+        </div>
+      </div>
     </div>
 
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <ul>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#details">Camp Details</a></li>
-            <li><a href="#signup">Sign Up</a></li>
-            <li><a href="#contact">Contact Us</a></li>
-            <li><a href="#faq">FAQ</a></li>
-        </ul>
-    </nav>
-
-    <!-- Main Content -->
-    <main>
-
-        <!-- Video Section -->
-        <section class="section">
-        <h2>Watch Our Camp in Action</h2>
-        <div class="video-wrapper">
-            <iframe src="https://player.vimeo.com/video/1096803298?title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    <div class="team-slide">
+      <div class="team-card" onclick="toggleTeamBio(this)">
+        <div class="team-card-img"><img src="sunny.png" alt="Sunny Crowell"></div>
+        <div class="team-card-body">
+          <h4>Sunny Crowell</h4>
+          <div class="team-role">Counselor</div>
+          <p class="team-bio-short">UT Austin — Education. Former Level 9 gymnast, track runner, and varsity cheer captain.</p>
+          <p class="team-bio-full">A lifelong East Dallas resident, Sunny attended Hexter Elementary, J.L. Long, and Woodrow Wilson. She competed at Level 9 gymnastics at Ridgewood, ran track all four years, and served as varsity cheer captain. Her passion for teaching and mentoring kids drives her major in Education.</p>
         </div>
-        </section>
+      </div>
+    </div>
 
-       
-        <!-- About Us Section -->
-        <section id="about" class="section">
-            <h2>About Us</h2>
-            <div class="about-text">
-            <p>At East Dallas Athletics Camp (EDAC), our mission is to create a safe, fun, and active environment to remind kids that the only screen they need in the summer is sunscreen.</p>
-            <p>Campers will spend the week building athletic skills, confidence, and teamwork through a variety of sports and fitness activities. Each day includes training in different sports, such as basketball, soccer, dodgeball, Foursquare, kickball, volleyball, spikeball, wiffleball, putter golf, free play, and more, with a focus on fundamentals, agility, and overall athletic development. Our experienced coaches work with all skill levels to create a positive, encouraging environment where kids stay active, make new friends, and have a blast—without the need for screens!</p>
-</div>
-            <div class="founders">
-                <div class="founder">
-                    <h3>Hudson Wilk</h3>
-                    <img src="hud baseball.jpeg" alt="Hudson Wilk" class="founder-img">
-                    <img src="hud prof.JPG" alt="Hudson Wilk" class="founder-img">
-                    <p>Hello! My name is Hudson Wilk and with the help of my lifelong friend, Logan Mabry, we founded East Dallas Athletics Camp (EDAC). Growing up in East Dallas, I went through the feeder pattern of Mockingbird Elementary, William B. Travis, and Woodrow Wilson HS. My time in this pattern was one that I wouldn't trade for the world and I couldn’t imagine a better upbringing to make me the person I am today. I currently attend the University of Texas at Austin and I am majoring in Advertising/ Business Marketing. During my time at Woodrow Wilson, I was Varsity Captain of the Baseball team, an International Baccalaureate Diploma recipient, and a 4-year Member of the National Honor Society.</p>
-                    <p>Over the past few summers, I worked at various camps and was inspired by the concept of a kids sports camp. This inspiration gave way to the idea to start my own camp with my dear friend Logan. After conducting several weeks of successful camp fun, a spark was lit, and I knew this was just the beginning. My main goal in co-founding EDAC was to provide an unforgettable experience to the younger generation that I was so lucky to have growing up in East Dallas and regularly attending various summer camps. We want to not only provide a safe and enjoyable environment during the long summer months but also serve as mentors for kids, helping them develop through a fun and inclusive process.</p>
-                </div>
-                <div class="founder">
-                    <h3>Logan Mabry</h3>
-                    <img src="log basket new.jpeg" alt="Logan Mabry" class="founder-img">
-                    <img src="log prof.jpeg" alt="Logan Mabry" class="founder-img">
-                    <p>Hey there! My name is Logan Mabry and I’m a co-founder of East Dallas Athletic Camp (EDAC), with the courteous help of my best friend, Hudson Wilk. I currently attend Colorado State University in Fort Collins majoring in Finance, and prior I attended the feeder pattern of Mockingbird, J.L Long, and Woodrow. I was one of Woodrow’s Varsity Basketball Captains, an active member of the National Honor Society for two years, and a former Lifeguard at Tietze Pool. I graduated with High Honors and look to continue the same throughout my time in college.</p>
-                    <p>Growing up, sports camps always were a huge factor in my life, and something I will forever cherish. The idea of starting our very own sports camp came about last summer, and Hudson and I knew we’d have a great opportunity to give back to the place that we’ve always loved. The main driving point for why I decided to be a part of founding EDAC was to give back to the community of East Dallas and allow for summer fun for the kids, and free time for busy working parents. I remember growing up and being sent off to various summer sport camps as a kid, and they were always my favorite part about summer. My goal with this camp is to not only help out the future generations of the East Dallas vicinity with summer fun, but to give them a wonderful time to learn, grow, and develop their skills for the future. We want to provide these kids with life long memories and opportunities that will make an everlasting impact.</p>
-                </div>
-            </div>
+    <div class="team-slide">
+      <div class="team-card" onclick="toggleTeamBio(this)">
+        <div class="team-card-img"><img src="mat1.png" alt="Matthew Casas"></div>
+        <div class="team-card-body">
+          <h4>Matthew Casas</h4>
+          <div class="team-role">Counselor</div>
+          <p class="team-bio-short">UT Austin — Advertising & Communication. CPR certified, former City of Dallas lifeguard.</p>
+          <p class="team-bio-full">A Woodrow Wilson grad who played volleyball and basketball, Matthew grew up learning what it takes to run a great camp—his dad managed Ridgewood Recreation Center. He's a 3-year City of Dallas lifeguard and CPR certified through the American Red Cross.</p>
+        </div>
+      </div>
+    </div>
 
-            <div class="counselors">
-                <h3>The Team Behind the Magic</h3>
-                <div class="counselor-grid">
-                    <div class="counselor-card">
-                        <img src="lyla.png" alt="Counselor 1" class="counselor-img">
-                        <img src="sunny2.png" alt="Counselor 2" class="counselor-img">
-                        <p><strong>Lyla Hale</strong><br>Hey!! My name is Lyla Hale, and I’m thrilled to be part of East Dallas Athletics Camp this summer! I graduated from Woodrow Wilson High School as an International Baccalaureate Diploma recipient and now attend the University of Tennessee, where I’m studying in the nursing program. Sports have always been a huge part of my life. I was a four-year varsity starter and captain of the Lady Wildcats soccer team, helping lead our team to many great wins. I also have plenty of experience working with kids—I’ve been an assistant coach for the Lakewood Lions, a second-grade girls’ YMCA soccer team, and I’ve spent several years working as a lifeguard. I’m passionate about helping young athletes grow their skills and confidence, and I can’t wait to have a fun and inspiring summer with everyone at camp!</p>
-                    </div>
-                    <div class="counselor-card">
-                        <img src="sunny.png" alt="Counselor 2" class="counselor-img">
-                        <img src="lyla2.png" alt="Counselor 2" class="counselor-img">
-                        <p><strong>Sunny Crowell</strong><br>Hi! My name is Sunny Crowell, and I’m so excited to work at East Dallas Athletics Camp 2025! I’ve lived in East Dallas my entire life, and growing up in this amazing community has shaped who I am today. I attended Hexter Elementary, J.L. Long Middle School, and graduated from Woodrow Wilson High School in 2024. I was a competitive gymnast at Ridgewood Gymnastics, competing at Level 9. At Woodrow, I ran track all four years, played golf during my sophomore year, participated in two musicals, and served as varsity cheer captain. I’m currently attending the University of Texas, majoring in Education because of my passion for teaching and mentoring kids. I’ve had lots of experience working with children—from babysitting to teaching at Incarnation Academy’s summer program last year. I can’t wait to help make this summer a fun, positive, and empowering experience for all the young athletes at camp!</p>
-                    </div>
-                    <div class="counselor-card">
-                        <img src="mat1.png" alt="Counselor 3" class="counselor-img">
-                        <img src="mat2.png" alt="Counselor 3" class="counselor-img">
-                        <p><strong>Matthew Casas</strong><br>Hey there! My name is Matthew Casas, and I’m so excited for this year’s camp to kick off! I’m a proud graduate of Woodrow Wilson High School, where I played boys’ volleyball, club volleyball, and basketball. I’m now heading into my sophomore year at the University of Texas, majoring in Advertising and Communication. Camps have always been a big part of my life—my dad managed Ridgewood Recreation Center and ran the summer camp there, so I grew up learning what it takes to create a fun and safe environment for kids. That experience has really shaped the kind of camp counselor I strive to be. Before joining EDAC, I worked as a lifeguard for the City of Dallas for three years, and I’m currently CPR certified through the American Red Cross. I’m really looking forward to making a positive impact and helping your kids have an unforgettable camp experience!</p>
-                     </div>
-                    <div class="counselor-card">
-                        <img src="zach1.png" alt="Counselor 3" class="counselor-img">
-                        <img src="zach2.png" alt="Counselor 3" class="counselor-img">
-                        <p><strong>Zach Lewis</strong><br>Hi! My name is Zach Lewis and I am extremely excited to be a part of the staff for the East Dallas Athletics Camp this summer! I’ve lived in the Lakewood area my whole life. I attended Lakewood Elementary and graduated from Woodrow Wilson High School. During high school at Woodrow, I played varsity baseball, and sports in general were a huge part of my life. Currently, I attend the University of Arkansas, majoring in Finance. I have always had a passion for working with kids, as I feel I can get on their level and understand their emotions really well. I also have a ton of experience with kids, including being a co-founder of the Kickoff Sports Dallas nonprofit organization, where we hosted sports summer camps often. I am also a lifeguard at the Tietze Park Pool. I’m truly looking forward to having an amazing summer with these young athletes and helping them grow not only athletically, but as people too!!</p>
-                    </div>
-                  <div class="counselor-card">
-                        <img src="everett.png" alt="Counselor 3" class="counselor-img">
-                        <img src="everett 2.png" alt="Counselor 3" class="counselor-img">
-                        <p><strong>Everett Scott</strong><br>Hi! I’m Everett Scott, and I’m so excited to be part of East Dallas Athletic Camp this summer! I’ve lived in East Dallas my whole life and have loved connecting with the community through babysitting and spending time with local families. I attended Woodrow Wilson High School, where I was involved in several clubs and played on the tennis team my junior year. I’m now at Colorado State University in the Honors Program, studying Fine Arts and Merchandising/Marketing. Sports, and especially sports camps, have been a huge part of my life since I was little. I grew up attending gymnastics, basketball, and tennis camps with friends and family, and I have so many great memories. I’m passionate about working with kids and helping them realize how strong, capable, and confident they truly are. I can’t wait to be a positive role model, make new memories, and have an awesome summer together!</p>
-                    </div>
-                    <!-- Add more counselor cards as needed -->
-                </div>
-            </div>
-            
-        </section>
+    <div class="team-slide">
+      <div class="team-card" onclick="toggleTeamBio(this)">
+        <div class="team-card-img"><img src="zach1.png" alt="Zach Lewis"></div>
+        <div class="team-card-body">
+          <h4>Zach Lewis</h4>
+          <div class="team-role">Counselor</div>
+          <p class="team-bio-short">University of Arkansas — Finance. Co-founder of Kickoff Sports Dallas nonprofit.</p>
+          <p class="team-bio-full">A Lakewood native and Woodrow Wilson grad, Zach played varsity baseball and co-founded the Kickoff Sports Dallas nonprofit organization. He's a lifeguard at Tietze Park Pool and has a natural ability to connect with kids at their level.</p>
+        </div>
+      </div>
+    </div>
 
-        <!-- Testimonials Section -->
-        <section id="quotes" class="section">
-            <h2>Kids Love EDAC and Parents Love Us Even More!</h2>
-            <blockquote>
-                <p>“One of the highlights of my 10-year-old son's year was spending 4 days at camp with Logan and Hudson. Not only did he build a little more stamina and endurance, he gained confidence. You can easily see the leadership each of the coaches brings to the table. My son had no complaints and that's a first lol.”</p>
-                <footer>- Shelly</footer>
-            </blockquote>
-            <blockquote>
-                <p>“I just showed Sam your message and his response was 'Everything was perfect! I wouldn't change a thing!' So, thank you!! Sam was very hesitant to go, but by the end, he wanted to return every day. Thank you for providing some screen-free summer fun!!”</p>
-                <footer>- Elizabeth</footer>
-            </blockquote>
-            <blockquote>
-                <p>“Thanks so much for providing community and activity and mentorship for our kids. Keep me posted if y'all do any camps next summer. Appreciate you!”</p>
-                <footer>- Whitney</footer>
-            </blockquote>
-            <blockquote>
-                <p>“His favorite part was doing different sports. His least favorite was he wished the camp was longer.”</p>
-                <footer>- Finnegan</footer>
-            </blockquote>
-        </section>
+    <div class="team-slide">
+      <div class="team-card" onclick="toggleTeamBio(this)">
+        <div class="team-card-img"><img src="everett.png" alt="Everett Scott"></div>
+        <div class="team-card-body">
+          <h4>Everett Scott</h4>
+          <div class="team-role">Counselor</div>
+          <p class="team-bio-short">Colorado State University Honors — Fine Arts & Merchandising. Lifelong East Dallas community member.</p>
+          <p class="team-bio-full">Everett has spent her life connecting with the East Dallas community through babysitting and local involvement. A Woodrow Wilson graduate, she played tennis and is now in CSU's Honors Program. She's passionate about helping kids realize how strong, capable, and confident they truly are.</p>
+        </div>
+      </div>
+    </div>
 
-        <!-- Camp Details Section -->
-        <section id="details" class="section">
-            <h2>Camp Details</h2>
-            <ul>
-        <div class="camp-details">
-
-  <p><strong>📅 Dates:</strong><br> June 8-12 | June 22-26 | July 6-10 | July 13-17 | July 27-31</p>
-  <p><strong>📍 Location:</strong><br> Zion Lutheran Church, 6121 E Lovers Ln, Dallas, TX 75214</p>
-  <p><strong>⏰ Schedule:</strong><br> Monday–Friday, 9:00 AM – 3:00 PM</p>
-  <p><strong>🎒 What to Bring:</strong><br> - Packed lunch<br> - Refillable water bottle<br> *(A healthy snack is provided daily!)*</p>
-  <p><strong>👨👩 Ages:</strong><br> 7–12 years (Boys & Girls)</p>
-  <p><strong>💲 Cost:</strong><br> $365 per week</p>
-  <p><strong>💳 Payment Methods:</strong></p>
-  <div class="payment-methods">
-    <p>✔ Venmo: @edacamp</p>
-    <p>✔ Cash App: @edacamp</p>
-    
+  </div>
+  <div class="carousel-controls">
+    <button class="carousel-btn" onclick="moveCarousel('team', -1)"><i class="fas fa-chevron-left"></i></button>
+    <div class="carousel-indicators" id="teamDots"></div>
+    <button class="carousel-btn" onclick="moveCarousel('team', 1)"><i class="fas fa-chevron-right"></i></button>
   </div>
 </div>
+  </div>
+</section>
 
+<!-- TESTIMONIALS -->
 
-</div>
-    
-                
-            
-        </section>
+<section id="testimonials">
+  <div class="container text-center">
+    <div class="section-label" style="color: var(--accent-light);" data-aos="fade-up">Testimonials</div>
+    <h2 class="section-title" style="color: white;" data-aos="fade-up">Kids Love EDAC.<br>Parents Love Us Even More.</h2>
+    <div class="testimonial-carousel" data-aos="fade-up">
+      <div class="testimonial-slide active">
+        <div class="testimonial-quote">"One of the highlights of my 10-year-old son's year was spending 4 days at camp with Logan and Hudson. Not only did he build a little more stamina and endurance, he gained confidence. You can easily see the leadership each of the coaches brings to the table. My son had no complaints and that's a first lol."</div>
+        <div class="testimonial-author"><strong>— Shelly</strong></div>
+      </div>
+      <div class="testimonial-slide">
+        <div class="testimonial-quote">"I just showed Sam your message and his response was 'Everything was perfect! I wouldn't change a thing!' Sam was very hesitant to go, but by the end, he wanted to return every day. Thank you for providing some screen-free summer fun!!"</div>
+        <div class="testimonial-author"><strong>— Elizabeth</strong></div>
+      </div>
+      <div class="testimonial-slide">
+        <div class="testimonial-quote">"Thanks so much for providing community and activity and mentorship for our kids. Keep me posted if y'all do any camps next summer. Appreciate you!"</div>
+        <div class="testimonial-author"><strong>— Whitney</strong></div>
+      </div>
+      <div class="testimonial-slide">
+        <div class="testimonial-quote">"His favorite part was doing different sports. His least favorite was he wished the camp was longer."</div>
+        <div class="testimonial-author"><strong>— Finnegan</strong></div>
+      </div>
+    </div>
+    <div class="carousel-dots">
+      <button class="dot active" onclick="goToSlide(0)"></button>
+      <button class="dot" onclick="goToSlide(1)"></button>
+      <button class="dot" onclick="goToSlide(2)"></button>
+      <button class="dot" onclick="goToSlide(3)"></button>
+    </div>
+  </div>
+</section>
 
-        <!-- Facilities Section -->
-        <section id="facilities" class="section">
-            <h2>State-of-the-Art Facilities</h2>
-            <div class="facilities-gallery">
-                <img src="gym1.png" alt="Facility Image 1">
-                <img src="gym2.png" alt="Facility Image 2">
-                <img src="gym3.png" alt="Facility Image 3">
-                <img src="lobby1.png" alt="Facility Image 4">
-                <img src="lobby2.png" alt="Facility Image 5">
-            </div>
-        </section>
+<!-- CAMP DETAILS -->
 
-        <!-- Sign Up Section -->
-        <section id="signup" class="section">
-            <h2>Sign Up</h2>
-            <iframe
-                src="https://docs.google.com/forms/d/e/1FAIpQLSeU34UkgV_HgBvnb44rSnNmWwKtUA_4qPesAjk7zqLEpJ6mNw/viewform?usp=header"
-                width="100%"
-                height="800"
-                frameborder="0"
-                marginheight="0"
-                marginwidth="0">Loading…</iframe>
-        </section>
+<section id="details">
+  <div class="container text-center">
+    <div class="section-label" data-aos="fade-up">Camp Details</div>
+    <h2 class="section-title" data-aos="fade-up">Everything You Need to Know</h2>
+    <div class="details-grid">
+      <div class="detail-card" data-aos="fade-up" data-aos-delay="100">
+        <i class="fas fa-calendar-days"></i>
+        <h4>2026 Dates</h4>
+        <ul>
+          <li>June 8–12</li>
+          <li>June 22–26</li>
+          <li>July 6–10</li>
+          <li>July 13–17</li>
+          <li>July 27–31</li>
+        </ul>
+      </div>
+      <div class="detail-card" data-aos="fade-up" data-aos-delay="150">
+        <i class="fas fa-location-dot"></i>
+        <h4>Location</h4>
+        <p>Zion Lutheran Church<br>6121 E Lovers Ln<br>Dallas, TX 75214</p>
+        <p style="margin-top:10px; font-size:0.82rem; color:var(--gray-500);">Drop-off & pick-up: South side of the building, ROC parking lot.</p>
+      </div>
+      <div class="detail-card" data-aos="fade-up" data-aos-delay="200">
+        <i class="fas fa-clock"></i>
+        <h4>Schedule</h4>
+        <p>Monday – Friday<br><strong>9:00 AM – 3:00 PM</strong></p>
+        <p style="margin-top:10px; font-size: 0.88rem; color: var(--primary); font-weight: 600;">After-Camp: 3:00–5:00 PM (+$30)</p>
+      </div>
+      <div class="detail-card" data-aos="fade-up" data-aos-delay="250">
+        <i class="fas fa-bag-shopping"></i>
+        <h4>What to Bring</h4>
+        <ul>
+          <li>Packed lunch</li>
+          <li>Refillable water bottle</li>
+          <li>Athletic clothing</li>
+          <li>Closed-toe shoes</li>
+        </ul>
+        <p style="margin-top:8px; font-size:0.85rem; color:var(--accent); font-weight:600;">A healthy snack is provided daily!</p>
+      </div>
+      <div class="detail-card" data-aos="fade-up" data-aos-delay="300">
+        <i class="fas fa-child-reaching"></i>
+        <h4>Ages & Cost</h4>
+        <p>Boys & Girls ages <strong>7–12</strong></p>
+        <div class="price-tag" style="margin-top:12px;">$365<span style="font-size:0.9rem;font-weight:500;">/week</span></div>
+        <p style="font-size:0.85rem;color:var(--gray-500);margin-top:8px;">Venmo: @edacamp &bull; Cash App: @edacamp</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <!-- FAQ Section -->
-        <section id="faq" class="section">
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq">
-                <div class="faq-item">
-                    <div class="faq-question">How many years have you all worked at summer camps and which camps have you worked at?</div>
-                    <div class="faq-answer">
-                        <p>This is EDAC's second year running, led by Hudson and Logan, who both have extensive experience working with kids in various camp and activity settings. Before starting their own camp, Hudson worked as a counselor at Friends of Lakewood (FOL), an assistant at Woodrow Baseball Camp, and a counselor for Studio Bella at White Rock United Methodist Church. Logan also has a strong background in working with kids—he is a CPR-certified lifeguard and has worked at Woodrow Basketball Camps. Additionally, both have dedicated many hours to volunteering in local schools through the Young Men’s Service League (YMSL), a community service organization.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">What should my child bring to camp?</div>
-                    <div class="faq-answer">
-                        <p>Campers must bring a refillable water bottle (we’ll have refill stations available), their own lunch in a secure lunchbox, and athletic clothing with closed-toe shoes. A healthy snack will be provided daily.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">Since the camp is held at a church, are there any religious practices that take place during camp?</div>
-                    <div class="faq-answer">
-                        <p>There will be no religious practices that take place during our camp. While we hold camp at a church for its convenient space and resources, our program is entirely secular. We want to focus on creating a fun, inclusive environment where all kids feel welcome, regardless of their background or beliefs.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">How do I sign up?</div>
-                    <div class="faq-answer">
-                        <p>You can sign up by filling out the form in the "Sign Up" section above. Once registered, you will receive a confirmation email with additional details about camp.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">What is the kid-to-counselor ratio?</div>
-                    <div class="faq-answer">
-                        <p>Our kid-to-counselor ratio will be a maximum of 1:10. We have a strong pool of counselors who are well-suited for the role, each with extensive experience working with children. If selected for EDAC, their full bio and achievements will be featured on our website and social media channels.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">Where is drop-off and pick-up?</div>
-                    <div class="faq-answer">
-                        <p>Drop-off will be on the south side of the building on E. Lovers Ln, in the ROC parking lot. (Look for the lot closer to Skillman, as there are two along Lovers Ln.)</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">When are payments due?</div>
-                    <div class="faq-answer">
-                        <p>All payments are due two weeks before your selected week of camp. This ensures we can staff appropriately and have all supplies ready to go. Thank you for understanding and helping us keep things running smoothly!</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">What security measures are in place to ensure my child's safety?</div>
-                    <div class="faq-answer">
-                        <p>EDAC is hosted in a closed environment, and the only people within the confines of EDAC camp are those who have checked in through our check-in procedures. All entry doors will remain locked during camp hours, and only authorized individuals will be permitted inside. In the event of an injury, we have first aid kits on-site, and if the situation is serious, 911 will be called, and parents will be notified immediately.</p>
-                    </div>
-                <div class="faq-item">
-                    <div class="faq-question">What is the refund policy?</div>
-                    <div class="faq-answer">
-                        <p>All registrations for East Dallas Athletics Camp (EDAC) are final. Due to the nature of camp planning, staffing, and scheduling, we do not offer refunds for cancellations, no-shows, or partial attendance.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+<!-- FACILITIES -->
 
-        <!-- Contact Section -->
-        <section id="contact" class="section">
-            <h2>Contact Us</h2>
-            <ul>
-                <li><strong>Hudson Wilk:</strong> hudsonwilk@utexas.edu | 214-957-8713</li>
-                <li><strong>Logan Mabry:</strong> loganmabry@icloud.com | 972-762-2407</li>
-                <li><strong>Instagram:</strong> @eastdallasathleticscamp</li>
-                <li><strong>Facebook:</strong> East Dallas Athletics Camp</li>
-            </ul>
-        </section>
-    </main>
+<section id="facilities">
+  <div class="container text-center">
+    <div class="section-label" data-aos="fade-up">Our Space</div>
+    <h2 class="section-title" data-aos="fade-up">State-of-the-Art Facilities</h2>
+    <div class="facilities-grid" data-aos="fade-up" data-aos-delay="100">
+      <div class="facility-item">
+        <img src="gym1.png" alt="Main Gym">
+        <div class="facility-overlay"><span>Main Gym</span></div>
+      </div>
+      <div class="facility-item">
+        <img src="gym2.png" alt="Outdoor Fields">
+        <div class="facility-overlay"><span>Outdoor Fields</span></div>
+      </div>
+      <div class="facility-item">
+        <img src="gym3.png" alt="Activity Courts">
+        <div class="facility-overlay"><span>Activity Courts</span></div>
+      </div>
+      <div class="facility-item">
+        <img src="lobby1.png" alt="Game Zone">
+        <div class="facility-overlay"><span>Game Zone</span></div>
+      </div>
+      <div class="facility-item">
+        <img src="lobby2.png" alt="Snack Area">
+        <div class="facility-overlay"><span>Snack Area</span></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <p>&copy; 2025 East Dallas Athletics Camp. All rights reserved.</p>
-    </footer>
+<!-- SIGN UP -->
 
-    <script>
-        // JavaScript for FAQ Accordion
-        const faqQuestions = document.querySelectorAll('.faq-question');
-        faqQuestions.forEach(question => {
-            question.addEventListener('click', () => {
-                question.classList.toggle('active');
-                const answer = question.nextElementSibling;
-                if (answer.style.maxHeight) {
-                    answer.style.maxHeight = null;
-                    answer.style.padding = '0 15px';
-                } else {
-                    answer.style.maxHeight = answer.scrollHeight + 'px';
-                    answer.style.padding = '15px';
-                }
-            });
-        });
-    </script>
+<section id="signup">
+  <div class="container">
+    <div class="section-label" style="color: var(--accent-light);" data-aos="fade-up">Register Today</div>
+    <h2 class="section-title" data-aos="fade-up">Sign Up for Summer 2026</h2>
+    <p class="section-subtitle" style="color: rgba(255,255,255,0.7); margin: 0 auto;" data-aos="fade-up">Spots fill fast! Secure your camper's week today.</p>
+    <div class="signup-wrapper" data-aos="fade-up" data-aos-delay="100">
+      <div class="signup-form-container">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeU34UkgV_HgBvnb44rSnNmWwKtUA_4qPesAjk7zqLEpJ6mNw/viewform?embedded=true" loading="lazy">Loading…</iframe>
+      </div>
+      <div class="payment-info">
+        <div class="payment-method"><i class="fas fa-mobile-screen"></i> Venmo: @edacamp</div>
+        <div class="payment-method"><i class="fas fa-dollar-sign"></i> Cash App: @edacamp</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+
+<section id="faq">
+  <div class="container text-center">
+    <div class="section-label" data-aos="fade-up">FAQ</div>
+    <h2 class="section-title" data-aos="fade-up">Frequently Asked Questions</h2>
+    <div class="faq-list" data-aos="fade-up">
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">How many years have you all worked at summer camps? <i class="fas fa-plus"></i></button>
+        <div class="faq-answer"><div class="faq-answer-inner">This is EDAC's second year running, led by Hudson and Logan, who both have extensive experience working with kids in various camp and activity settings. Our entire staff has backgrounds in coaching, lifeguarding, and youth mentoring.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">What should my child bring to camp? <i class="fas fa-plus"></i></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Campers must bring a refillable water bottle, their own lunch, and athletic clothing with closed-toe shoes. A healthy snack will be provided daily.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">Are there religious practices during camp? <i class="fas fa-plus"></i></button>
+        <div class="faq-answer"><div class="faq-answer-inner">No. The camp is entirely secular and inclusive. We simply use Zion Lutheran Church as our facility.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">How do I sign up? <i class="fas fa-plus"></i></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Fill out the form in the Sign Up section above. You will receive a confirmation email with all the details.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">What is the kid-to-counselor ratio? <i class="fas fa-plus"></i></button>
+        <div class="faq-answer"><div class="faq-answer-inner">We maintain a maximum ratio of 1 counselor for every 10 campers to ensure personalized attention and safety.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">Where is drop-off and pick-up? <i class="fas fa-plus"></i></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Drop-off and pick-up is on the south side of the building on E. Lovers Ln in the ROC parking lot.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">When are payments due? <i class="fas fa-plus"></i></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Payments are due two weeks before your selected week of camp.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">What security measures are in place? <i class="fas fa-plus"></i></button>
+        <div class="faq-answer"><div class="faq-answer-inner">We maintain a closed environment with locked doors, authorized access only, first aid on-site, and emergency protocols in place.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">What is the refund policy? <i class="fas fa-plus"></i></button>
+        <div class="faq-answer"><div class="faq-answer-inner">All registrations are final. No refunds.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">What is the 3–5 PM After-Camp Program? <i class="fas fa-plus"></i></button>
+        <div class="faq-answer"><div class="faq-answer-inner">EDAC After-Camp is an optional 3:00–5:00 PM continuation of our regular camp day. While camp runs from 9:00 AM–3:00 PM, this extended time is designed to support families who may need a later pickup due to work or other commitments. The cost is $30 for the two-hour session, and campers will enjoy an additional snack during After-Camp while participating in supervised, relaxed activities.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+  <div class="container text-center">
+    <div class="section-label" data-aos="fade-up">Get in Touch</div>
+    <h2 class="section-title" data-aos="fade-up">Contact Us</h2>
+    <div class="contact-grid">
+      <div class="contact-card" data-aos="fade-up" data-aos-delay="100">
+        <h4>Hudson Wilk</h4>
+        <a href="mailto:hudsonwilk@utexas.edu"><i class="fas fa-envelope"></i> hudsonwilk@utexas.edu</a>
+        <a href="tel:2149578713"><i class="fas fa-phone"></i> (214) 957-8713</a>
+      </div>
+      <div class="contact-card" data-aos="fade-up" data-aos-delay="200">
+        <h4>Logan Mabry</h4>
+        <a href="mailto:loganmabry@icloud.com"><i class="fas fa-envelope"></i> loganmabry@icloud.com</a>
+        <a href="tel:9727622407"><i class="fas fa-phone"></i> (972) 762-2407</a>
+      </div>
+    </div>
+    <div class="social-links" data-aos="fade-up" data-aos-delay="300">
+      <a href="https://instagram.com/eastdallasathleticscamp" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="social-link" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+  <div class="container">
+    <p>&copy; 2026 East Dallas Athletics Camp. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+<script>
+// AOS
+AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 50, disable: window.innerWidth < 768 });
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.querySelectorAll('[data-aos]').forEach(el => {
+      if (getComputedStyle(el).opacity === '0') { el.style.opacity = '1'; el.style.transform = 'none'; }
+    });
+  }, 2000);
+});
+
+// Navbar
+const nav = document.getElementById('navbar');
+window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); });
+
+// Floating CTA — hide when signup section is visible
+const floatingCta = document.getElementById('floatingCta');
+const signupSection = document.getElementById('signup');
+const obsCta = new IntersectionObserver(entries => {
+  entries.forEach(e => { floatingCta.style.opacity = e.isIntersecting ? '0' : '1'; floatingCta.style.pointerEvents = e.isIntersecting ? 'none' : 'auto'; });
+}, { threshold: 0.2 });
+obsCta.observe(signupSection);
+
+// Mobile Menu
+function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+
+// Bio Toggle (Founders)
+function toggleBio(btn) {
+  const full = btn.previousElementSibling;
+  full.classList.toggle('open');
+  btn.innerHTML = full.classList.contains('open') ? 'Read Less <i class="fas fa-chevron-up"></i>' : 'Read More <i class="fas fa-chevron-right"></i>';
+}
+
+// Bio Toggle (Team)
+function toggleTeamBio(card) { card.querySelector('.team-bio-full').classList.toggle('open'); }
+
+// ── CAROUSEL ENGINE ──
+const carousels = {
+  founder: { track: document.getElementById('founderTrack'), index: 0, perView: 1 },
+  team: { track: document.getElementById('teamTrack'), index: 0, perView: 3 }
+};
+
+function getPerView(type) {
+  if (type === 'founder') return 1;
+  if (window.innerWidth <= 768) return 1;
+  if (window.innerWidth <= 900) return 2;
+  return 3;
+}
+
+function getSlideCount(type) {
+  return carousels[type].track.children.length;
+}
+
+function getMaxIndex(type) {
+  const pv = getPerView(type);
+  return Math.max(0, getSlideCount(type) - pv);
+}
+
+function updateCarousel(type) {
+  const c = carousels[type];
+  const total = getSlideCount(type);
+  const perView = getPerView(type);
+  // Track width so each slide = (100/perView)% of wrapper; each slide = (100/total)% of track
+  c.track.style.setProperty('--carousel-total', total);
+  c.track.style.width = (total / perView * 100) + '%';
+  const slideWidthPct = 100 / total;
+  const pct = c.index * slideWidthPct;
+  c.track.style.transform = `translateX(-${pct}%)`;
+  // Update dots
+  const dotsEl = document.getElementById(type + 'Dots');
+  if (dotsEl) {
+    dotsEl.innerHTML = '';
+    const maxI = getMaxIndex(type);
+    for (let i = 0; i <= maxI; i++) {
+      const d = document.createElement('button');
+      d.className = 'carousel-ind' + (i === c.index ? ' active' : '');
+      d.onclick = () => { c.index = i; updateCarousel(type); };
+      dotsEl.appendChild(d);
+    }
+  }
+}
+
+function moveCarousel(type, dir) {
+  const c = carousels[type];
+  c.index = Math.max(0, Math.min(getMaxIndex(type), c.index + dir));
+  updateCarousel(type);
+}
+
+// Swipe support
+function addSwipe(type) {
+  const track = carousels[type].track;
+  let startX = 0, moved = false;
+  track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; moved = false; }, { passive: true });
+  track.addEventListener('touchmove', () => { moved = true; }, { passive: true });
+  track.addEventListener('touchend', e => {
+    if (!moved) return;
+    const diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) moveCarousel(type, diff > 0 ? 1 : -1);
+  });
+  // Mouse drag
+  let mDown = false, mStartX = 0;
+  track.addEventListener('mousedown', e => { mDown = true; mStartX = e.clientX; track.classList.add('grabbing'); });
+  window.addEventListener('mouseup', e => {
+    if (!mDown) return;
+    mDown = false; track.classList.remove('grabbing');
+    const diff = mStartX - e.clientX;
+    if (Math.abs(diff) > 40) moveCarousel(type, diff > 0 ? 1 : -1);
+  });
+}
+
+addSwipe('founder');
+addSwipe('team');
+updateCarousel('founder');
+updateCarousel('team');
+window.addEventListener('resize', () => { updateCarousel('founder'); updateCarousel('team'); });
+
+// FAQ Accordion
+function toggleFAQ(btn) {
+  const item = btn.parentElement;
+  const answer = item.querySelector('.faq-answer');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => { i.classList.remove('open'); i.querySelector('.faq-answer').style.maxHeight = null; });
+  if (!isOpen) { item.classList.add('open'); answer.style.maxHeight = answer.scrollHeight + 'px'; }
+}
+
+// Testimonial Carousel
+let currentSlide = 0;
+const slides = document.querySelectorAll('.testimonial-slide');
+const dots = document.querySelectorAll('.dot');
+function goToSlide(n) {
+  slides[currentSlide].classList.remove('active');
+  dots[currentSlide].classList.remove('active');
+  currentSlide = n;
+  slides[currentSlide].classList.add('active');
+  dots[currentSlide].classList.add('active');
+}
+setInterval(() => { goToSlide((currentSlide + 1) % slides.length); }, 5000);
+
+// Hero Particles
+const pc = document.getElementById('particles');
+for (let i = 0; i < 20; i++) {
+  const p = document.createElement('div');
+  p.className = 'particle';
+  const s = Math.random() * 6 + 2;
+  p.style.cssText = `width:${s}px;height:${s}px;left:${Math.random()*100}%;animation-duration:${Math.random()*12+8}s;animation-delay:${Math.random()*10}s;`;
+  pc.appendChild(p);
+}
+</script>
+
 </body>
 </html>

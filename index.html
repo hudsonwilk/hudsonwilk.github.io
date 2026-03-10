@@ -1094,19 +1094,6 @@ for (let i = 0; i < 20; i++) {
   p.style.cssText = `width:${s}px;height:${s}px;left:${Math.random()*100}%;animation-duration:${Math.random()*12+8}s;animation-delay:${Math.random()*10}s;`;
   pc.appendChild(p);
 }
-
-  <!-- Randomize founders script -->
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const track = document.getElementById('founderTrack');
-  if (!track) return; // safety check
-  const slides = Array.from(track.children);
-
-  // 50/50 chance to swap the first slide
-  if (Math.random() < 0.5) {
-    track.appendChild(slides[0]); // moves the first slide to the end
-  }
-});
 </script>
 
 </body>

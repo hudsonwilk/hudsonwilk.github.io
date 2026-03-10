@@ -1095,6 +1095,18 @@ for (let i = 0; i < 20; i++) {
   pc.appendChild(p);
 }
 </script>
+<!-- Randomize founders script -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const track = document.getElementById('founderTrack');
+  if (!track) return; // safety check
+  const slides = Array.from(track.children);
 
+  // 50/50 chance to swap the first slide
+  if (Math.random() < 0.5) {
+    track.appendChild(slides[0]); // moves the first slide to the end
+  }
+});
+</script>
 </body>
 </html>
